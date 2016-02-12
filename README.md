@@ -4,19 +4,26 @@ E-learing application for cs435 called 'Thatoneproject'
 
 <h3> Team members </h3> 
 Group project for CS435.
+Team Leader name: <b>Andrew kralovec siu850639556</b> id: 850639556, email: akrala@siu.edu 
+<ol>
+    <li>Andrew Kralovec</li>
+    <li>Tyler Nethery</li>
+    <li>Douglas Bukauskas</li>
+    <li>Timothy Lunik</li>
+</ol>
 
 <h4>Packages </h4>
 <ol>
-  <li>AngularJS is for client side MVC processing</li>
-  <li>Bcrypt-nodejs gives the ability to hash the password</li>
-  <li>Connect-flash is for passing session flashdata messages</li>
-  <li>Express is the framework</li>
-  <li>Ejs is a templating engine</li>
-  <li>Jade is a templating engine</li>
-  <li>Mongodb is for our MongoDB database</li>
-  <li>Morgan is for formatting options</li> 
-  <li>Multer is for file uploading</li> 
-  <li>Passport is to authenticate requests</li>
+    <li>AngularJS is for client side MVC processing</li>
+    <li>Bcrypt-nodejs gives the ability to hash the password</li>
+    <li>Connect-flash is for passing session flashdata messages</li>
+    <li>Express is the framework</li>
+    <li>Ejs is a templating engine</li>
+    <li>Jade is a templating engine</li>
+    <li>Mongodb is for our MongoDB database</li>
+    <li>Morgan is for formatting options</li> 
+    <li>Multer is for file uploading</li> 
+    <li>Passport is to authenticate requests</li>
 </ol>
 
 <h3> Start Mongo My Admin </h3> 
