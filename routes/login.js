@@ -21,8 +21,7 @@ router.get('/', function (req, res, next) {
 router.post('/loginRequest', function (req, res) {
     var databaseName = "E-learn", collection = "Accounts";
     var username = req.body.username, password = req.body.password;
-    console.log("req: " + req);
-    console.log("username: " + username + "password: " + password);
+    console.log("username: " + username + " password: " + password);
     var db = new Db(databaseName, new Server('localhost', 27017));
     db.open(function (err, db) {
         console.log(databaseName + ": opened");
@@ -32,8 +31,7 @@ router.post('/loginRequest', function (req, res) {
             assert.equal(null, err);
             if (doc != null) {
                 console.log("Found");
-                res.json("Login sucess");
-
+                res.render('index', { title: 'Home Page', message :'Message'});
             } else {
                 console.log("Not Found");
                 res.json("Lofin Failed");
