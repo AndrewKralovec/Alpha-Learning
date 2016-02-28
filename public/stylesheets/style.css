@@ -1,8 +1,12 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-top: 70px; /* Change if height of navigation changes. */
 }
 
 a {
   color: #00B7FF;
+}
+footer {
+    margin: 50px 0;
 }
