@@ -17,4 +17,30 @@ router.get('/', function (req, res, next) {
     res.render('login', { title: 'Login page' });
 });
 
+// Listen for Seach collection request
+router.post('/loginRequest', function (req, res) {
+    var databaseName = "E-learn", collection = "Accounts";
+    var username = req.body.username, password = req.body.password;
+    console.log("req: " + req);
+    console.log("username: " + username + "password: " + password);
+    var db = new Db(databaseName, new Server('localhost', 27017));
+    db.open(function (err, db) {
+        console.log(databaseName + ": opened");
+        //var cursor = db.collection(collection).find( { "username":username,"password": password } );
+        // cannot apply cursor methods to the result of findOne() because a single document is returned. 
+        db.collection(collection).findOne({ "username": username, "password": password }, function (err, doc) {
+            assert.equal(null, err);
+            if (doc != null) {
+                console.log("Found");
+                res.json("Login sucess");
+
+            } else {
+                console.log("Not Found");
+                res.json("Lofin Failed");
+            }
+            db.close();
+        });
+    });
+});
+
 module.exports = router;
