@@ -4,19 +4,19 @@ block content
   // Page Content
   .container
     .row
-      // Blog Entries Column
+      // Page Entries Column
       .col-md-8
         h1.page-header
-          | Alpha Learning
-          small Home Page
-        // First Blog Post
+          | Andrew Kralovec
+          small Feed Page
+        // First Page Post
         h2
           a(href='#') CS 435
         p.lead
           | by 
           a(href='index.php') Andrew Kralovec
         p
-          span.glyphicon.glyphicon-time
+          i.fa.fa-clock-o
           |  Posted on Feb 28, 2016 at 10:00 PM
         hr
         img.img-responsive(src='/images/prefix-1.png', height="300" width="300", alt='')
@@ -28,14 +28,14 @@ block content
           | Read More 
           i.fa.fa-arrow-circle-right
         hr
-        // Second Blog Post
+        // Second Page Post
         h2
           a(href='#') CS 410
         p.lead
           | by 
           a(href='index.php') Andrew Kralovec
         p
-          span.glyphicon.glyphicon-time
+          i.fa.fa-clock-o
           |  Posted on Feb 28, 2016 at 10:00 PM
         hr
         img.img-responsive(src='/images/prefix-3.png', height="300" width="300", alt='')
@@ -47,14 +47,14 @@ block content
           | Read More 
           i.fa.fa-arrow-circle-right
         hr
-        // Third Blog Post
+        // Third Page Post
         h2
           a(href='#') CS 440
         p.lead
           | by 
           a(href='index.php') Andrew Kralovec
         p
-          span.glyphicon.glyphicon-time
+          i.fa.fa-clock-o
           |  Posted on Feb 28, 2016 at 10:00 PM
         hr
         img.img-responsive(src='/images/prefix-4.png', height="300" width="300", alt='')
@@ -72,17 +72,17 @@ block content
             a(href='#') ← Older
           li.next
             a(href='#') Newer →
-      // Blog Sidebar Widgets Column
+      // Page Sidebar Widgets Column
       .col-md-4
-        // Blog Search Well
+        // Page Search Well
         .well
           h4 Course Search
           .input-group
             input.form-control(type='text')
             span.input-group-btn
               button.btn.btn-default(type='button')
-                span.glyphicon.glyphicon-search
-        // Blog Categories Well
+                 i.fa.fa-search
+        // Page Categories Well
         .well
           h4 User Courses
           .row
@@ -110,6 +110,13 @@ block content
                   a(href='#') CS 487
         // Side Widget Well
         .well
-          h4 Side Widget Well
+          h4 Reputation (200)
           p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
+            | You have no recent negative or positive
+            a reputation
+            | changes
+            .alert.alert-success(role='alert')
+              strong Well done!
+              i.pull-right.fa.fa-thumbs-up.icon-rounded.fa-2x  
+
+  
