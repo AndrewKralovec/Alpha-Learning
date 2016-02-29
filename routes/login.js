@@ -17,8 +17,9 @@ router.get('/', function (req, res, next) {
     res.render('login', { title: 'Login page' });
 });
 
+
 // Listen for Seach collection request
-router.post('/loginRequest', function (req, res) {
+router.post('/loginRequest', function (req, res, next) {
     var databaseName = "E-learn", collection = "Accounts";
     var username = req.body.username, password = req.body.password;
     console.log("username: " + username + " password: " + password);
@@ -31,10 +32,9 @@ router.post('/loginRequest', function (req, res) {
             assert.equal(null, err);
             if (doc != null) {
                 console.log("Found");
-                res.render('index', { title: 'Home Page', message :'Message'});
-            } else {
-                console.log("Not Found");
-                res.json("Lofin Failed");
+                res.json({address:"Feed"});
+            }else {
+                res.status(400).json();
             }
             db.close();
         });
