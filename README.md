@@ -1,4 +1,4 @@
-# ThatOneProject
+# Alpha Learning
 <h2> Alpha Learning </h2> 
 E-learing application for cs435 called 'Alpha-Learning'
 
