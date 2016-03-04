@@ -2,7 +2,6 @@ var app = angular.module('docModule', []);
 app.controller('docCtrl', function ($scope, $http) {
     $scope.Math = window.Math;
     
-    
     $scope.getPags = function (num) {
         alert(Math.ceil(num/1));
         return (new Array(Math.ceil(num/1))); 

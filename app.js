@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', login);
-app.use('/Feed', routes);
+app.use('/Home', routes);
 app.use('/NewUserAccount', account);
 
 // catch 404 and forward to error handler

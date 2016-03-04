@@ -12,11 +12,7 @@ var Db = require('mongodb').Db,
     Code = require('mongodb').Code,
     assert = require('assert');
     
-// Will add :username
-router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Home Page', message :'Message'});
-});
-
+// Home page
 router.get('/:username', function (req, res, next) {
     var username = req.params.username;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
