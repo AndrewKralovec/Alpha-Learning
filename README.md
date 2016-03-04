@@ -2,6 +2,8 @@
 <h2> That one project </h2> 
 E-learing application for cs435 called 'Thatoneproject'
 
+![mongo_icon](https://github.com/SIU-CS-435/Alpha-Learning/tree/master/public/images/Example.png)
+
 <h3> Team members </h3> 
 Group project for CS435.
 Team Leader name: <b>Andrew kralovec siu850639556</b> id: 850639556, email: akrala@siu.edu 
