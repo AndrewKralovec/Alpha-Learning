@@ -32,8 +32,8 @@ router.post('/loginRequest', function (req, res, next) {
             assert.equal(null, err);
             if (doc != null) {
                 console.log("Found");
-                username = "/home/"+username
-                res.json({address:username});
+                var address = "/home/"+username
+                res.json({address:address});
             }else {
                 res.status(400).json();
             }

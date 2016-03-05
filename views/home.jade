@@ -3,13 +3,13 @@ extends layout
 block content
   script(src="/javascripts/homeCtrl.js")
   // Page Content
-  .container(style='padding: 70px; position: relative;' ng-app='docModule', ng-controller='docCtrl' , ng-init="documents= #{JSON.stringify(documents)}")
+  .container(ng-app='docModule', ng-controller='docCtrl' , ng-init="documents= #{JSON.stringify(documents)}")
     .row
       // Page Entries Column
       .col-md-8
-        h1.page-header
-          | Andrew Kralovec
-          small Feed Page
+        h1.page-header(ng-model='userName', ng-init="userName= #{JSON.stringify(message)}")
+          | {{userName}}
+          small   Feed Page
         // Course Feed post
         h2(ng-model='count' ng-init="count=documents.length ; halfCount=Math.round(documents.length/2)") Count: {{count}}
         .CourseContainer(ng-repeat='doc in documents', style='padding: 5px;')
