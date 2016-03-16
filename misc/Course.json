@@ -10,7 +10,19 @@
   "RecentPost":{
     "TimeStamp":"",
     "Title":"",
+    "Thumbnail":"",
     "path":"",
     "description":""
-  }
+  },
+  "Post":[
+    {
+			"id" : 0,
+			"filename" : "Test.png",
+			"Path" : "uploads/file-1453095651163",
+			"savename" : "file-1453095651163",
+			"filetype" : "image/png",
+      "Thumbnail":"",
+      "description":""
+		}
+  ]
 }

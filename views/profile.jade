@@ -1,0 +1,108 @@
+extends layout
+block content
+  link(href='/stylesheets/user.css', rel='stylesheet')
+  .container
+    .row
+      .col-md-offset-2.col-md-8.col-lg-offset-3.col-lg-6
+        .well.profile
+          .col-sm-12
+            .col-xs-12.col-sm-8
+              h2 Andrew Kralovec
+              p
+                strong About: 
+                |  Software developer
+              p
+                strong Hobbies: 
+                |  Read, out with friends, listen to music, draw and learn new things.
+              p
+                strong Date of Birth: 
+                |  04/05/1993
+              p
+                strong Contact: 
+                a(href='www.google.com') akrala@yahoo.com
+              p
+                strong Tags: 
+                span.tags AngularJS
+                span.tags bootstrap3
+                span.tags C
+                span.tags C#
+                span.tags css3
+                span.tags html5
+                span.tags javascirpt
+                span.tags java
+                span.tags jquery
+                span.tags php
+              p
+                strong Courses: 
+                ul
+                  li
+                    a CS410
+                  li
+                    a CS435
+                  li
+                    a CS440
+                  li
+                    a CS487
+            .col-xs-12.col-sm-4.text-center
+              figure
+                img.img-circle.img-responsive(src='https://www.drupal.org/files/profile_default.jpg', alt='')
+                figcaption.ratings
+                  p
+                    | Ratings
+                    a(href='#')
+                      span.fa.fa-star
+                    a(href='#')
+                      span.fa.fa-star
+                    a(href='#')
+                      span.fa.fa-star
+                    a(href='#')
+                      span.fa.fa-star
+                    a(href='#')
+                      span.fa.fa-star-o
+                p 4.0
+          .col-xs-12.divider.text-center
+            .col-xs-12.col-sm-4.emphasis
+              h2
+                strong  20,7K 
+              p
+                small Followers
+              button.btn.btn-success.btn-block
+                span.fa.fa-plus-circle
+                |  Follow
+            .col-xs-12.col-sm-4.emphasis
+              h2
+                strong 245
+              p
+                small Posts
+              button.btn.btn-info.btn-block
+                span.fa.fa-user
+                |  Recent Post
+            .col-xs-12.col-sm-4.emphasis
+              h2
+                strong 43
+              p
+                small Snippets
+              .btn-group.dropup.btn-block
+                button.btn.btn-primary(type='button')
+                  span.fa.fa-gear
+                  |  Options
+                button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                  span.caret
+                  span.sr-only Toggle Dropdown
+                ul.dropdown-menu.text-left(role='menu')
+                  li
+                    a(href='#')
+                      span.fa.fa-envelope.pull-right
+                      |  Send an email
+                  li
+                    a(href='#')
+                      span.fa.fa-list.pull-right
+                      |  Add or remove from a list
+                  li.divider
+                  li
+                    a(href='#')
+                      span.fa.fa-warning.pull-right
+                      | Report this user for spam
+                  li.divider
+                  li
+                    a.btn.disabled(href='#', role='button')  Unfollow 

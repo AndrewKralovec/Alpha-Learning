@@ -26,14 +26,18 @@ router.get('/:username', function (req, res, next) {
                         res.render('home', { title: 'User Hame Page', message: username, documents:documents});
                     }
                     else {
-                        res.render('pages/404', { title: 'Error Page'});
+                        res.render('404', { title: 'Error Page'});
                     }
                 });
             });
 });
 
+router.get('/:username/Profile',function(req,res,next){
+  res.render('profile',{title:"Profile "}); 
+});
+
 router.get('/error', function (req, res, next) {
-    res.render('404.jade', { title: 'Error Page'});
+    res.render('404', { title: 'Error Page'});
 });
 
 
