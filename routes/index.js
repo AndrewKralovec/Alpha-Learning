@@ -35,6 +35,9 @@ router.get('/:username', function (req, res, next) {
 router.get('/:username/Profile',function(req,res,next){
   res.render('profile',{title:"Profile "}); 
 });
+router.get('/:username/Quiz',function(req,res,next){
+  res.render('quiz',{title:"Quiz "}); 
+});
 
 router.get('/error', function (req, res, next) {
     res.render('404', { title: 'Error Page'});

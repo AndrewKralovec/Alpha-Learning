@@ -1,0 +1,25 @@
+extends layout
+block content
+  script(src="/javascripts/quizCtrl.js")
+  .container-fluid.bg-info(ng-app='quizModule', ng-controller='quizController')
+    .quiz-area(ng-show='inProgress')
+      div(ng-show='!quizOver')
+        h2#question {{question}}
+        ul#options
+          li(ng-repeat='option in options')
+            label
+              input(type='radio', name='answer', value='{{option}}')
+              | 					{{option}}
+        button(ng-click='checkAnswer()', ng-show='answerMode') Submit
+        div(ng-show='!answerMode')
+          button.next-question(ng-click='nextQuestion()') Next
+          span(ng-show='correctAns') That is correct!
+          span(ng-show='!correctAns') Sorry, that is an incorrect answer.
+      div(ng-show='quizOver')
+        h2 Quiz is over
+        button(ng-click='reset()') Play again
+      #score
+        | Score: {{score}}
+    .intro(ng-show='!inProgress')
+      p Are you ready to start your quiz 
+      button#startQuiz(ng-click='start()') Start the Quiz

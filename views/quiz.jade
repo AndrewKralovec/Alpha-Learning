@@ -1,0 +1,44 @@
+extends layout
+block content
+  link(href='/stylesheets/quiz.css', rel='stylesheet')
+  script(src="/javascripts/quizCtrl.js")
+  .container-fluid.bg-info(ng-app='quizModule', ng-controller='quizController')
+    .modal-dialog(ng-show='inProgress')
+      .modal-content(ng-show='!quizOver')
+        .modal-header
+          h3
+            span#qid.label.label-warning {{id}}
+            |  {{question}}
+        .modal-body
+          .col-xs-3.col-xs-offset-5
+          .quiz(data-toggle='buttons')
+            // set attribute to check the parameter to disable
+            label.element-animation1.btn.btn-lg.btn-primary.btn-block(ng-repeat='option in options',ng-disabled="correctAnswer",ng-click="correctAnswer || checkAnswer($index)")
+              span.btn-label
+                i.fa.fa-angle-right
+              input(type='radio', name='question', value='{{$index}}',)
+              | {{option}}
+          .score(style='padding-top: 10px; display: inline;')
+            h3
+              | Score : {{score}}  
+              a.element-animation4.btn.btn-lg.btn-primary.btn-primary(style='float: right;', href='#',ng-click='nextQuestion()')
+                | Next &nbsp;
+                span.fa.fa-arrow-circle-right
+          .correctOrNot(style='padding-top: 10px; display: inline;',ng-show='!answerMode')
+            span(ng-show='correctAnswer') That is correct!
+            span(ng-show='!correctAnswer') Sorry, that is an incorrect answer.
+          div(ng-show='quizOver')
+            h2 Quiz is over
+            button(ng-click='reset()') Play again
+        .modal-footer.text-muted
+          span#answer
+    .modal-dialog(ng-show='!inProgress')
+      .modal-content
+        .modal-header
+          // Title 
+          h3 Quiz Title
+        .modal-body
+          p Are you ready to start your quiz 
+          a.element-animation0.btn.btn-lg.btn-primary.btn-primary(ng-click='start()')
+            | Start the Quiz
+        .modal-footer.text-muted
