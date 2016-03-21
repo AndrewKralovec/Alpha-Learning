@@ -1,6 +1,12 @@
+/* Andrew Kralovec 
+ * Quiz controller 
+ * Logic written in Javascript, responsible for taking the quiz. 
+ */
+
 var app = angular.module('quizModule', []);
 app.controller('quizController', function($scope, $http) {
 
+  // Start the quiz 
   $scope.start = function() {
     $scope.id = 0;
     $scope.quizOver = false;
@@ -8,22 +14,27 @@ app.controller('quizController', function($scope, $http) {
     $scope.getQuestion();
   };
 
+  // Rest values
   $scope.reset = function() {
     $scope.inProgress = false;
     $scope.score = 0;
   };
 
+  // Load next question 
   $scope.nextQuestion = function() {
     $scope.correctAnswer = false; 
     $scope.id++;
     $scope.getQuestion();
   };
 
+  // When the quiz is over
   $scope.quizOver = function() {
 
   };
 
+  // Get array fo questions from datatbase 
   $scope.requestQuestion = function(id) {
+    // Static arrays for now 
     var questions = [{
       question: "What are objects that refer to the model. They act as glue between controller and view?",
       options: ["Controllers", "Directives", "Scopes", "Filters"],
@@ -42,6 +53,7 @@ app.controller('quizController', function($scope, $http) {
       answer: 3
     }];
 
+    // return the next question 
     if (id < questions.length) {
       return questions[id];
     } else {
@@ -49,9 +61,10 @@ app.controller('quizController', function($scope, $http) {
     }
   };
 
+  // Load the next question 
   $scope.getQuestion = function() {
-    var q = $scope.requestQuestion($scope.id);
-    if (q) {
+    var question = $scope.requestQuestion($scope.id);
+    if (question) {
       $scope.question = q.question;
       $scope.options = q.options;
       $scope.answer = q.answer;
@@ -60,11 +73,11 @@ app.controller('quizController', function($scope, $http) {
       $scope.quizOver = true;
     }
   };
-  
+   // Check valiation 
    $scope.TestClick = function(index) {
      alert("Working"+index);
    };
-
+  // Check the if the user answer is correct 
   $scope.checkAnswer = function(index) {
     var choice = $scope.options[index] ; 
     var correct =  $scope.options[$scope.answer] ; 
