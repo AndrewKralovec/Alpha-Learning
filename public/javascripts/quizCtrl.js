@@ -64,9 +64,9 @@ app.controller('quizController', function($scope, $http) {
   $scope.getQuestion = function() {
     var question = $scope.requestQuestion($scope.id);
     if (question) {
-      $scope.question = q.question;
-      $scope.options = q.options;
-      $scope.answer = q.answer;
+      $scope.question = question.question;
+      $scope.options = question.options;
+      $scope.answer = question.answer;
       $scope.answerMode = true;
     } else {
       $scope.quizOver = true;
