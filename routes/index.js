@@ -40,7 +40,7 @@ router.get('/:username/Profile',function(req,res,next){
 router.get('/:username/Quiz',function(req,res,next){
   res.render('quiz',{title:"Quiz "}); 
 });
-
+// ERROR
 router.get('/error', function (req, res, next) {
     res.render('404', { title: 'Error Page'});
 });
