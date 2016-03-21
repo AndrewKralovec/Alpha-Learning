@@ -2,7 +2,6 @@
  * Quiz controller 
  * Logic written in Javascript, responsible for taking the quiz. 
  */
-
 var app = angular.module('quizModule', []);
 app.controller('quizController', function($scope, $http) {
 
