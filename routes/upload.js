@@ -1,3 +1,5 @@
+// Im moving upload route under the index section 
+
 /* Define dependencies */
 var express = require('express'); // ; 
 var multer = require('multer'); // ; 
