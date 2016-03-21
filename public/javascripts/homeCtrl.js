@@ -1,3 +1,8 @@
+/* Andrew Kralovec 
+ * Home controller 
+ * Logic written in Javascript, responsible for formatting what the user sees on the home page
+ * This, for the moment, includes the count of courses,and at which index to split the courses up on the page 
+ */
 var app = angular.module('docModule', []);
 app.controller('docCtrl', function ($scope, $http) {
     $scope.Math = window.Math;
@@ -13,6 +18,8 @@ app.controller('docCtrl', function ($scope, $http) {
         };
     };
     //$scope.documents = documents ; 
+    
+    // Show corresponding content to the file type. 
     $scope.showType = function (type) {
         if (type.includes("image")) {
             return true; 
