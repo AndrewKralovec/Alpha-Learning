@@ -32,9 +32,11 @@ router.get('/:username', function (req, res, next) {
             });
 });
 
+// Test out user profile pages 
 router.get('/:username/Profile',function(req,res,next){
   res.render('profile',{title:"Profile "}); 
 });
+// Test out quiz pages
 router.get('/:username/Quiz',function(req,res,next){
   res.render('quiz',{title:"Quiz "}); 
 });
