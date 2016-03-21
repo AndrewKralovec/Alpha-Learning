@@ -23,7 +23,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// Have root route to the login page.
+// Once sessions are in place, the routes will resemble a average websites. 
 app.use('/', login);
 app.use('/Home', routes);
 app.use('/NewUserAccount', account);
