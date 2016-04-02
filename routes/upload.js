@@ -1,9 +1,11 @@
 // Im moving upload route under the index section. 
 
 /* Define dependencies */
-var express = require('express'); // ; 
-var multer = require('multer'); // ; 
-// Allow Multer callbacks with configuring storage 
+var express = require('express'); // ;
+var multer = require('multer'); // ;
+// Allow Multer callbacks with configuring storage
+
+
 var storage = multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, './uploads');
@@ -17,19 +19,22 @@ var upload = multer({ storage: storage }).single('file');
 
 
 /* Configure the app */
-var app = express(); 
+var app = express();
+var router = express.Router();
 var upload = multer({
     dest: './uploads/',
     limits: {fileSize:500000}}); 
 
 /* Handling routes */
-app.get('/', function (req, res) {
-  res.sendfile('index.html')
-}); 
+router.get('/', function (req, res, next) {
+//app.get('/', function (req, res) {
+ // res.sendfile('c:/Users/Doug/Documents/GitHub/Alpha-Learning/views/uploadPOC.html')
+    res.render('upload', { title: 'upload page' });
+});
 
 app.post('/api/files', upload.single('userFile'), function (req, res) {
   console.log(req.file)
-  res.sendfile('index2.html')
+  res.sendfile('c:/Users/Doug/Documents/GitHub/Alpha-Learning/views/uploadPOC2.html')
 }); 
 
 // Listen for Upload file 
@@ -76,7 +81,9 @@ router.post('/uploadFile', function (req, res) {
     });
 });
 
+module.exports = router;
+
 /* Run the server */
-app.listen(3000, function () {
-    console.log('Listening on port 3000')
-}); 
+/*app.listen(3500, function () {
+    console.log('Listening on port 3500')
+});*/

@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
 
 // Listen for Seach collection request
 router.post('/loginRequest', function (req, res, next) {
-    var databaseName = "E-learn", collection = "Accounts";
+    var databaseName = "AlphaLearning", collection = "Accounts";
     var username = req.body.username, password = req.body.password;
     console.log("username: " + username + " password: " + password);
     var db = new Db(databaseName, new Server('localhost', 27017));
