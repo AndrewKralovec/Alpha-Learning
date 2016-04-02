@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  script(src="/javascripts/uploadCtrl.js")
+html
+  head File Upload Page
+  body
+    p
+    form#uploadForm(enctype='multipart/form-data', action='/api/files', method='post')
+      input(type='file', name='userFile')
+      input(type='submit', value='Upload File', name='submit')
