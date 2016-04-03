@@ -1,14 +1,15 @@
 extends layout
 block content
   link(href='/stylesheets/user.css', rel='stylesheet')
-  .container
+  script(src="/javascripts/profileCtrl.js")
+  .container(ng-app='profileModule', ng-controller='profileCtrl' , ng-init="documents= #{JSON.stringify(documents)}")
     .row
       // Center Profile 
       .col-md-8.col-md-offset-2
         .well.profile
           .col-sm-12
-            .col-xs-12.col-sm-8
-              h2 Andrew Kralovec
+            .col-xs-12.col-sm-8(ng-model='userName', ng-init="userName= #{JSON.stringify(userName)}")
+              h2 {{userName}}
               p
                 strong About: 
                 |  Software developer
