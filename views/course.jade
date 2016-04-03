@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  script(src="/javascripts/courseCtrl.js")
+  // Page Content
+  .container(ng-app='courseModule', ng-controller='courseCtrl' , ng-init="Posts= #{JSON.stringify(Posts)}")
+    .row
+      // Page Entries Column
+      .col-md-8
+        h1.page-header(ng-model='CourseName', ng-init="CourseName= #{JSON.stringify(CourseName)}")
+          | {{CourseName}}
+          small   Feed Page
+        // Course Feed post
+        h2(ng-model='count' ng-init="count=Posts.length ; halfCount=Math.round(Posts.length/2)") Count: {{count}}
+        .CourseContainer(ng-repeat='post in Posts', style='padding: 5px;')
+          h2
+            a(href='#') {{post.name}}
+          // Maybe remove the author option
+          p.lead
+            | by 
+            a(href='index.php') {{post.author}}
+          p
+            i.fa.fa-clock-o
+            |  Posted on {{post.timestamp}}
+          hr
+          // Remeber to fix paths for post 
+          img.img-responsive(ng-src='/images/{{post.image}}', alt='', style='max-width:300px; max-height:300px;')
+          hr
+          p
+            b Caption Description
+            |  {{post.description}}
+          a.btn.btn-primary(href='/Courses/{{post.path}}')
+            | Read More 
+            i.fa.fa-arrow-circle-right
+          hr
+        // Pager 
+        ul.pager
+          li.previous
+            a(href='#') ← Older
+          li.next
+            a(href='#') Newer →
+      // Page Sidebar Widgets Column
+      .col-md-4
+        // Page Search Well
+        .well
+          h4 Course Search
+          .input-group
+            input.form-control(type='text')
+            span.input-group-btn
+              button.btn.btn-default(type='button')
+                 i.fa.fa-search
+        // Page Categories Well
+        .well
+          h4 User Courses
+          .row
+            // Category 1
+            .col-lg-6
+              ul.list-unstyled
+                li(ng-repeat='post in Posts |filter:range(1,halfCount)')
+                  a(href='#') {{post.name}}
+            // Category 2
+            .col-lg-6
+              ul.list-unstyled
+                li(ng-repeat='post in Posts |filter:range((halfCount+1),count)')
+                  a(href='#') {{post.name}}
+        // Side Widget Well
+        .well
+          h4 Reputation (200)
+          p
+            | You have no recent negative or positive
+            a reputation
+            | changes
+            .alert.alert-success(role='alert')
+              strong Well done!
+              i.pull-right.fa.fa-thumbs-up.icon-rounded.fa-2x  
+
+  

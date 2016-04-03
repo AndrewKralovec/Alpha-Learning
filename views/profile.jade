@@ -8,7 +8,7 @@ block content
       .col-md-8.col-md-offset-2
         .well.profile
           .col-sm-12
-            .col-xs-12.col-sm-8(ng-model='userName', ng-init="username= #{JSON.stringify(username)}")
+            .col-xs-12.col-sm-8(ng-model='username', ng-init="username= #{JSON.stringify(username)}")
               h2 {{username}}
               p
                 strong About: 
@@ -40,7 +40,7 @@ block content
                 strong Courses: 
                 ul
                   li(ng-repeat='doc in documents', style='padding: 5px;')
-                    a {{doc.name}}
+                    a(href='/Courses/{{doc.path}}') {{doc.name}}
             .col-xs-12.col-sm-4.text-center
               figure
                 img.img-circle.img-responsive(src='https://www.drupal.org/files/profile_default.jpg', alt='')

@@ -14,28 +14,26 @@
     "path":"",
     "description":""
   },
-  "Posts":[
+  "Post":[
     {
 			"id" : 0,
-			"filename" : "Test.png",
+			"filename" : "prefix-3.png", // not sure if to remove this field or image field 
 			"Path" : "uploads/file-1453095651163",
 			"savename" : "file-1453095651163",
 			"filetype" : "image/png",
       "Thumbnail":"",
 			"name" : "First Assignment",
       "image" : "prefix-3.png",
-      "author":"Andrew Kralovec",
-      "timestamp":"Feb 28, 2016 at 10:00 PM",
       "path":"First-assignment-address", // Needs to be set to a hex or base64 address 
-/*      "Documents":[
+      "Documents":[
         {
           "filename":"Assignment-1.docx",
           "Path":"uploads/file-1453095651163",
           "savename" : "file-1453095651163",
 			    "filetype" : "image/png"
         }
-      ],*/
-      "description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"
+      ],
+      "description":""
 		}
   ]
 }
