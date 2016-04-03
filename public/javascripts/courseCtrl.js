@@ -3,8 +3,8 @@
  * Logic written in Javascript, responsible for formatting what the user sees on the Course page
  * This, for the moment, includes the count of courses,and at which index to split the courses up on the page 
  */
-var app = angular.module('docModule', []);
-app.controller('docCtrl', function ($scope, $http) {
+var app = angular.module('courseModule', []);
+app.controller('courseCtrl', function ($scope, $http) {
     $scope.Math = window.Math;
     
     $scope.getPags = function (num) {
