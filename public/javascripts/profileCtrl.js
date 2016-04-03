@@ -6,6 +6,7 @@
 var app = angular.module('profileModule', []);
 app.controller('profileCtrl', function ($scope, $http) {
     $scope.Math = window.Math;
+   
     
     $scope.getPags = function (num) {
         alert(Math.ceil(num/1));
