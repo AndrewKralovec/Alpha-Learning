@@ -43,7 +43,7 @@ router.get('/:username/Profile',function(req,res,next){
                     if (doc != null) {
                         var documents = doc.Courses ; 
                         console.log("Found");
-                        res.render('profile', { title: 'User Hame Page', message: username, documents:documents});
+                        res.render('profile', { title: 'User Profile Page', username: username, documents:documents});
                     }
                     else {
                         res.render('error', { title: 'Error Page'});

@@ -8,8 +8,8 @@ block content
       .col-md-8.col-md-offset-2
         .well.profile
           .col-sm-12
-            .col-xs-12.col-sm-8(ng-model='userName', ng-init="userName= #{JSON.stringify(userName)}")
-              h2 {{userName}}
+            .col-xs-12.col-sm-8(ng-model='userName', ng-init="username= #{JSON.stringify(username)}")
+              h2 {{username}}
               p
                 strong About: 
                 |  Software developer
@@ -22,6 +22,7 @@ block content
               p
                 strong Contact: 
                 a(href='www.google.com') akrala@yahoo.com
+              // Do a change to pill when time allows 
               p
                 strong Tags: 
                 span.tags AngularJS
