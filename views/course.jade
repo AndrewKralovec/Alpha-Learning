@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  // Course Controller file 
   script(src="/javascripts/courseCtrl.js")
   // Page Content
   .container(ng-app='courseModule', ng-controller='courseCtrl' , ng-init="Posts= #{JSON.stringify(Posts)}")
@@ -73,5 +74,9 @@ block content
             .alert.alert-success(role='alert')
               strong Well done!
               i.pull-right.fa.fa-thumbs-up.icon-rounded.fa-2x  
+// Andrew Kralovec 
+   Course page, Template for the courses page.
+   Recive Course object, and display its contents. 
+   
 
   
