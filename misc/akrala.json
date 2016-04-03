@@ -11,17 +11,20 @@
 		{
 			"id" : 0,
 			"name" : "CS 435",
-			"image" : "prefix-1.png"
+			"image" : "prefix-1.png",
+      "path":"Cs-435-address" 
 		},
 		{
 			"id" : 1,
 			"name" : "CS 410",
-			"image" : "prefix-2.png"
+			"image" : "prefix-2.png",
+      "path":"Cs-410-address" 
 		},
 		{
 			"id" : 2,
 			"name" : "CS 440",
-			"image" : "prefix-3.png"
+			"image" : "prefix-3.png",
+      "path":"Cs-440-address"  
 		}
    ],
    "Documents":[

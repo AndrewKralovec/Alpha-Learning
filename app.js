@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var account = require('./routes/account');
+var courses = require('./routes/courses');
 
 var app = express();
 
@@ -27,7 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Once sessions are in place, the routes will resemble a average websites. 
 app.use('/', login);
 app.use('/Home', routes);
-app.use('/NewUserAccount', account);
+app.use('/NewUserAccount', account); // Looks ulgy need to renamte this route 
+app.use('/Courses', courses);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
