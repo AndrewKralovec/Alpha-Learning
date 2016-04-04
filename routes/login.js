@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+
+
 // All possible mongo db objects 
 var Db = require('mongodb').Db,
     MongoClient = require('mongodb').MongoClient,
@@ -12,16 +14,28 @@ var Db = require('mongodb').Db,
     Code = require('mongodb').Code,
     assert = require('assert');
 
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(express);
+
 // GET login page. 
 router.get('/', function (req, res, next) {
     res.render('login', { title: 'Login page' });
 });
 
+app.use(session({
+    secret: "somescretkeyhere",
+    resave: true,
+    saveUnitializaed: true,
+    store: new MongoStore({
+        url: 'mongodb://localhost/AlphaLearning/Accounts',
+        touchAfter: 24 * 3600
+    })
+}));
 
 // Listen for Seach collection request
 router.post('/loginRequest', function (req, res, next) {
-    var databaseName = "E-learn", collection = "Accounts";
-    var username = req.body.username, password = req.body.password;
+    var databaseName = "AlphaLearning", collection = "Accounts";
+    var username = req.session.body.username, password = req.body.password;
     console.log("username: " + username + " password: " + password);
     var db = new Db(databaseName, new Server('localhost', 27017));
     db.open(function (err, db) {
