@@ -1,0 +1,26 @@
+extends layout
+block content
+  script(src="/javascripts/uploadCtrl.js")
+  form(name='myForm')
+    fieldset
+      legend Upload on form submit
+      |       Username:
+      input(type='text', name='userName', ng-model='username', size='31', required='')
+      i(ng-show='myForm.userName.$error.required') *required
+      br
+      | Photo:
+      input(type='file', ngf-select='', ng-model='picFile', name='file', accept='image/*', ngf-max-size='2MB', required='', ngf-model-invalid='errorFile')
+      i(ng-show='myForm.file.$error.required') *required
+      br
+      i(ng-show='myForm.file.$error.maxSize')
+        | File too large
+        | {{errorFile.size / 1000000|number:1}}MB: max 2M
+      img.thumb(ng-show='myForm.file.$valid', ngf-thumbnail='picFile')
+      button(ng-click='picFile = null', ng-show='picFile') Remove
+      br
+      button(ng-disabled='!myForm.$valid', ng-click='uploadPic(picFile)') Submit
+      span.progress(ng-show='picFile.progress >= 0')
+        div(style='width:{{picFile.progress}}%', ng-bind="picFile.progress + '%'")
+      span(ng-show='picFile.result') Upload Successful
+      span.err(ng-show='errorMsg') {{errorMsg}}
+    br
