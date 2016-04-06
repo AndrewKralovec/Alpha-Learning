@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var session = require('express-session')
+var Promise = require('bluebird');
 
 var routes = require('./routes/index');
 var login = require('./routes/login');
@@ -11,6 +14,8 @@ var account = require('./routes/account');
 var courses = require('./routes/courses');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/AlphaLearning/Accounts');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
