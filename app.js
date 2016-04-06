@@ -12,7 +12,7 @@ var routes = require('./routes/index');
 var login = require('./routes/login');
 var account = require('./routes/account');
 var courses = require('./routes/courses');
-
+var upload = require('./routes/upload');
 var app = express();
 
 mongoose.connect('mongodb://localhost/AlphaLearning/Accounts');
@@ -35,6 +35,7 @@ app.use('/', login);
 app.use('/Home', routes);
 app.use('/NewUserAccount', account); // Looks ulgy need to renamte this route 
 app.use('/Courses', courses);
+app.use('/upload', upload);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

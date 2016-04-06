@@ -52,7 +52,7 @@ block content
                  i.fa.fa-search
         // Page Categories Well
         .well
-          h4 User Posts
+          h4 Course Posts
           .row
             // Category 1
             .col-lg-6
@@ -65,6 +65,32 @@ block content
                 li(ng-repeat='post in Posts |filter:range((halfCount+1),count)')
                   a(href='#') {{post.name}}
         // Side Widget Well
+        .well
+          h4 Course quizes
+          .row
+            // Category 1
+            .col-lg-6
+              ul.list-unstyled
+                li(ng-repeat='post in Posts |filter:range(1,halfCount)')
+                  a(href='#') {{post.name}}
+            // Category 2
+            .col-lg-6
+              ul.list-unstyled
+                li(ng-repeat='post in Posts |filter:range((halfCount+1),count)')
+                  a(href='#') {{post.name}}
+        .well
+          h4 User Posts
+          .row
+            // Category 1
+            .col-lg-6
+              ul.list-unstyled
+                li(ng-repeat='post in Posts |filter:range(1,halfCount)')
+                  a(href='#') {{post.name}}
+            // Category 2
+            .col-lg-6
+              ul.list-unstyled
+                li(ng-repeat='post in Posts |filter:range((halfCount+1),count)')
+                  a(href='#') {{post.name}}
         .well
           h4 Reputation (200)
           p
