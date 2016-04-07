@@ -28,7 +28,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/error', function (req, res, next) {
-    res.render('404.jade', { title: 'Error Page'});
+    res.render('error.jade', { title: 'Error Page'});
 });
 
 // Listen for Upload file 

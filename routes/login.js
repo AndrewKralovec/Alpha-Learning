@@ -51,4 +51,9 @@ router.post('/loginRequest', function (req, res, next) {
     });
 });
 
+router.get('/error', function (req, res, next) {
+    res.render('error.jade', { title: 'Error Page'});
+});
+
+
 module.exports = router;
