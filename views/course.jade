@@ -13,7 +13,7 @@ block content
           small   Feed Page
         // Course Feed post
         h2(ng-model='count' ng-init="count=Posts.length ; halfCount=Math.round(Posts.length/2)") Count: {{count}}
-        .CourseContainer(ng-repeat='post in Posts', style='padding: 5px;')
+        .CourseContainer(ng-repeat='post in Posts | filter:search:strict', style='padding: 5px;')
           h2
             a(href='#') {{post.name}}
           // Maybe remove the author option
@@ -46,7 +46,7 @@ block content
         .well
           h4 Post Search
           .input-group
-            input.form-control(type='text')
+            input.form-control(type='text',ng-model="search.name")
             span.input-group-btn
               button.btn.btn-default(type='button')
                  i.fa.fa-search

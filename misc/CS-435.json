@@ -2,6 +2,9 @@
 	"id" : 0,
   "name":"CS 435",
   "path":"Cs-435-address",
+  "author":"Andrew Kralovec",
+  "Free":true,
+  "Paid":false,
   "Associated Term": "",
   "Registration Dates": "",
   "Levels": "",
@@ -57,6 +60,13 @@
       "timestamp":"March 31, 2016 at 11:00 PM",
       "path":"Third-Homework", 
       "description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"
+		}
+  ],
+    "Quzies":[
+    {
+			"id" : 0,
+      "name":"First quiz",
+      "path":"quiz path"
 		}
   ]
 }
