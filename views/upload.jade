@@ -1,28 +1,49 @@
 extends layout
 block content
-  script(src="/javascripts/ng-file-upload.min.js")
-  script(src="/javascripts/ng-file-upload.js")
-  script(src="/javascripts/uploadCtrl.js")
-  form(name='myForm')
-    fieldset
-      legend Upload on form submit
-      |       Username:
-      input(type='text', name='userName', ng-model='username', size='31', required='')
-      i(ng-show='myForm.userName.$error.required') *required
+ // Page Content
+ // Only allowing images/pdf until i fix the universal file formats 
+ link(href="/stylesheets/upload.css", rel="stylesheet")
+ script(src="/javascripts/ng-file-upload.min.js")
+ script(src="/javascripts/ng-file-upload.js")
+ script(src="/javascripts/uploadCtrl.js")
+ .container(ng-app='fileUpload', ng-controller='uploadController', style='padding: 70px; position: relative;')
+  .panel.panel-default
+    .panel-heading
+      strong Alpha Learning Upload Files
+    .panel-body
+      // Standar Form
+      h4 Select files from your computer
+      form#js-upload-form(name='myForm', action='', method='post', enctype='multipart/form-data')
+        .form-inline
+          .form-group
+            input(type='text', name='userName', ng-model='username', max-size='31', required='')
+            i(ng-show='myForm.userName.$error.required') *required
+            input(type='file', ngf-select='', ng-model='picFile', name='file', accept='image/*', ngf-max-size='2MB', required='')
+            i(ng-show='myForm.file.$error.required') *required
+            br
+            i(ng-show='myForm.file.$error.maxSize')
+              | File too large
+              | {{picFile.size / 1000000|number:1}}MB: max 2M
+          button.btn.btn-sm.btn-primary(ng-disabled='!myForm.$valid', ng-click='uploadPic(picFile)') Upload files
+      // Drop Zone
+      h4 Or drag and drop files below
+      #drop-zone.upload-drop-zone(ng-show='!myForm.file.$valid',ngf-drop='', ngf-select='', ng-model='files', ngf-drag-over-class="'dragover'", ngf-multiple='true', ngf-allow-dir='true', accept='image/*,application/pdf,text/plain', ngf-pattern="'image/*,application/pdf'") Just drag and drop files here
+      //
+        Progress Bar
+        <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        <span class="sr-only">60% Complete</span>
+        </div>
+        </div>
+        Upload Finished
       br
-      | Photo:
-      input(type='file', ngf-select='', ng-model='picFile', name='file', accept='image/*', ngf-max-size='2MB', required='', ngf-model-invalid='errorFile')
-      i(ng-show='myForm.file.$error.required') *required
+      img.thumb(ng-show='myForm.file.$valid', ngf-thumbnail='picFile' style="max-width:400px;")
       br
-      i(ng-show='myForm.file.$error.maxSize')
-        | File too large
-        | {{errorFile.size / 1000000|number:1}}MB: max 2M
-      img.thumb(ng-show='myForm.file.$valid', ngf-thumbnail='picFile')
       button(ng-click='picFile = null', ng-show='picFile') Remove
-      br
-      button(ng-disabled='!myForm.$valid', ng-click='uploadPic(picFile)') Submit
-      span.progress(ng-show='picFile.progress >= 0')
-        div(style='width:{{picFile.progress}}%', ng-bind="picFile.progress + '%'")
-      span(ng-show='picFile.result') Upload Successful
-      span.err(ng-show='errorMsg') {{errorMsg}}
-    br
+      .js-upload-finished
+        h3 Processed files
+        .list-group
+          span.progress(ng-show='picFile.progress >= 0')
+            div(style='width:{{picFile.progress}}%', ng-bind="picFile.progress + '%'")
+          span.badge.alert-success.pull-right(ng-show='picFile.progress == 100') Upload Successful
+          span.badge.alert-error.pull-right(ng-show='errorMsg') {{errorMsg}}
