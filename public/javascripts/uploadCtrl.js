@@ -10,7 +10,7 @@ var app = angular.module('fileUpload', ['ngFileUpload']);
 app.controller('uploadController', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
     $scope.uploadPic = function(file) {
     file.upload = Upload.upload({
-      url: 'fileUpload/uploadFile',
+      url: 'upload/uploadFile',
       data: {file: file, username: $scope.username}, // extensions are not need because linux is GOD 
     });
 
