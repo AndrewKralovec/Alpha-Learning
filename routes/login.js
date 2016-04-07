@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
-
 // All possible mongo db objects 
 var Db = require('mongodb').Db,
     MongoClient = require('mongodb').MongoClient,
@@ -14,15 +12,12 @@ var Db = require('mongodb').Db,
     Code = require('mongodb').Code,
     assert = require('assert');
 
-var session = require('express-session');
-var MongoStore = require('connect-mongo')(express);
-
 // GET login page. 
 router.get('/', function (req, res, next) {
     res.render('login', { title: 'Login page' });
 });
 
-app.use(session({
+/*app.use(session({
     secret: "somescretkeyhere",
     resave: true,
     saveUnitializaed: true,
@@ -30,7 +25,7 @@ app.use(session({
         url: 'mongodb://localhost/AlphaLearning/Accounts',
         touchAfter: 24 * 3600
     })
-}));
+}));*/
 
 // Listen for Seach collection request
 router.post('/loginRequest', function (req, res, next) {
