@@ -1,0 +1,57 @@
+//Created by Doug on 4/8/2016.
+extends layout
+
+block content
+    script(src="/javascripts/post.js")
+    .container(ng-app='docModule')
+        .row
+            // Page Entries Column
+            .col-md-8
+                .panel.panel-default
+                    .panel-heading
+                        strong Alpha Learning Create Post
+                    .panel-body
+                        form.form1(name='form1', method='post')
+                            |   Username:
+                            input(type='text', name='username', ng-model='username', max-size='31',required='')
+                            br
+                            br
+                            // Textarea with max character allowance of 255 characters
+                            textarea.textarea(type='text', name='userPost', cols='45', rows='10',placeholder='Type what you want to say here...', required='', maxlength='255', ng-model='userPost')
+                    input.btn.btn-sm.btn-primary(ng-disabled='!form1.$valid', type='submit', name='button', value='Post', ng-click='someFunction(userPost)')
+            // Page Sidebar Widgets Column
+            .col-md-4
+                // Page Search Well
+                .well
+                    h4 Course Search
+                    .input-group
+                        input.form-control(type='text')
+                        span.input-group-btn
+                            button.btn.btn-default(type='button')
+                                i.fa.fa-search
+                    // Page Categories Well
+                .well
+                    h4 User Courses
+                    .row
+                        // Category 1
+                        .col-lg-6
+                            ul.list-unstyled
+                                li(ng-repeat='doc in documents |filter:range(1,halfCount)')
+                                    a(href='#') {{doc.name}}
+                        // Category 2
+                        .col-lg-6
+                            ul.list-unstyled
+                                li(ng-repeat='doc in documents |filter:range((halfCount+1),count)')
+                                    a(href='#') {{doc.name}}
+                // Side Widget Well
+                .well
+                    h4 Reputation (200)
+                    p
+                        | You have no recent negative or positive
+                        a reputation
+                        | changes
+                        .alert.alert-success(role='alert')
+                            strong Well done!
+                            i.pull-right.fa.fa-thumbs-up.icon-rounded.fa-2x
+
+

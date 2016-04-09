@@ -60,5 +60,9 @@ router.get('/error', function (req, res, next) {
     res.render('error', { title: 'Error Page'});
 });
 
+router.get('/post', function (req, res, next) {
+    res.render('post', {title: 'Create Post'});
+});
+
 
 module.exports = router;

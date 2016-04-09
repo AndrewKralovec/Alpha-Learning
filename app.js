@@ -10,6 +10,7 @@ var login = require('./routes/login');
 var account = require('./routes/account');
 var courses = require('./routes/courses');
 var upload = require('./routes/upload');
+var post = require('./routes/post');
 var app = express();
 
 // view engine setup
@@ -31,6 +32,7 @@ app.use('/Home', routes);
 app.use('/NewUserAccount', account); // Looks ulgy need to renamte this route 
 app.use('/Courses', courses);
 app.use('/upload', upload);
+app.use('/post',post);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
