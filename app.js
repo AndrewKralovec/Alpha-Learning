@@ -64,10 +64,10 @@ app.use('/upload', upload);
 app.use('/post',post);
 
 // passport config
-var Account = User ; 
+/*var Account = User ; 
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
+passport.deserializeUser(Account.deserializeUser());*/
 
 
 // catch 404 and forward to error handler
