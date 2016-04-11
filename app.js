@@ -20,7 +20,7 @@ var post = require('./routes/post');
 var app = express();
 
 var User = ({
-        username: String,
+    username: String,
     password: String,
     email: String,
     gender: String,
@@ -39,10 +39,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Configuring Passport
-app.use(expressSession({secret: 'mySecretKey'}));
+// Configuring Passport & Express session 
+app.use(require('express-session')({
+    secret: 'KralovecSecret',
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
  // Using the flash middleware provided by connect-flash to store messages in session
  // and displaying in templates
@@ -57,6 +62,13 @@ app.use('/NewUserAccount', account); // Looks ulgy need to renamte this route
 app.use('/Courses', courses);
 app.use('/upload', upload);
 app.use('/post',post);
+
+// passport config
+var Account = User ; 
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

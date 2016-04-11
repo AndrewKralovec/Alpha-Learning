@@ -26,6 +26,7 @@
     "passport": "*",
     "passport-local": "*",
     "serve-favicon": "~2.3.0",
+    "mocha":"*",
     "stylus": "0.42.3"
   }
 }
