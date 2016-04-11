@@ -19,14 +19,6 @@ var upload = require('./routes/upload');
 var post = require('./routes/post');
 var app = express();
 
-var User = ({
-    username: String,
-    password: String,
-    email: String,
-    gender: String,
-    address: String
-});
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
