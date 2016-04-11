@@ -1,3 +1,6 @@
+/**
+ * Created by Andrew Kralovec 
+ */
 var express = require('express');
 var router = express.Router();
 // All possible mongo db objects 
@@ -30,6 +33,10 @@ router.get('/:CourseName', function (req, res, next) {
                     }
                 });
             });
+});
+
+router.get('/:CourseName/post', function (req, res, next) {
+    res.render('post', { title: 'Post Page'});
 });
 
 router.get('/error', function (req, res, next) {
