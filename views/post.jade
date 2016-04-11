@@ -10,19 +10,24 @@ block content
         .col-lg-8
           // Blog Post
           // Title
-          h1 Blog Post Title
+          h1 Post Title
           // Author
           p.lead
             | by 
-            a(href='#') Start Bootstrap
+            a(href='#') Author
           hr
           // Date/Time
           p
-            span.glyphicon.glyphicon-time
+            i.fa.fa-clock-o
             |  Posted on August 24, 2013 at 9:00 PM
           hr
           // Preview Image
-          img.img-responsive(src='http://placehold.it/900x300', alt='')
+          .thumbnail
+            img.img-responsive(src='http://placehold.it/900x300', alt='')
+            p Tets below
+            h3
+              i.fa.fa-file
+              |  Files attached
           hr
           // Post Content
           p.lead
@@ -113,9 +118,3 @@ block content
             p
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
       hr
-      // Footer
-      footer
-        .row
-          .col-lg-12
-            p Copyright © Your Website 2014
-

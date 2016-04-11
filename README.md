@@ -2,7 +2,7 @@
 <h2> Alpha Learning </h2> 
 E-learing application for cs435 called 'Alpha-Learning'
 
-![Example](https://github.com/SIU-CS-435/Alpha-Learning/blob/master/public/images/Example.png)
+![Example](https://github.com/SIU-CS-435/Alpha-Learning/blob/master/public/images/AL_Icon.png)
 
 <h3> Team members </h3> 
 Group project for CS435.
@@ -31,7 +31,7 @@ Team Leader name: <b>Andrew kralovec siu850639556</b> id: 850639556, email: akra
 <h3> Start Mongo My Admin </h3> 
 Clone the project from github to your desired folder location. 
 <code>git clone  "https://github.com/SIU-CS-435/Alpha-Learning"</code>. 
-Open your terminal in the currect folder destination and run the the script app.js . "node app.js". The server will run on the default port '3000' feel free to change it to any port you wish. 
+Open your terminal in the current folder destination and run the script app.js . "node app.js". The server will run on the default port '3000' feel free to change it to any port you wish. 
 
 <h3> Debug E-learn </h3> 
 Debugger json has been set up in .vscode file. run the debugger with 
