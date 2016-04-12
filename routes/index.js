@@ -2,6 +2,7 @@
  * Created by Andrew Kralovec 
  */
 var express = require('express');
+var passport = require('passport');
 var router = express.Router();
 // All possible mongo db objects 
 var Db = require('mongodb').Db,

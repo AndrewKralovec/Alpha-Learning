@@ -9,7 +9,7 @@ var passport = require('passport');
 var expressSession = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-//var flash = require('connect-flash');
+var flash = require('connect-flash');
 
 var routes = require('./routes/index');
 var login = require('./routes/login');
@@ -30,21 +30,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Configuring Passport & Express session 
 app.use(require('express-session')({
     secret: 'KralovecSecret',
+    cookie: { maxAge: 60000000000 },
     resave: false,
     saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
- // Using the flash middleware provided by connect-flash to store messages in session
- // and displaying in templates
-//var flash = require('connect-flash');
-//app.use(flash());
+app.use(flash());
 
 // Have root route to the login page.
 // Once sessions are in place, the routes will resemble a average websites. 
@@ -56,11 +50,10 @@ app.use('/upload', upload);
 app.use('/post',post);
 
 // passport config
-/*var Account = User ; 
+var Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());*/
-
+passport.deserializeUser(Account.deserializeUser());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
