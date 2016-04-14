@@ -2,7 +2,6 @@
  * Created by Andrew Kralovec 
  */
 var express = require('express');
-var passport = require('passport');
 var router = express.Router();
 // All possible mongo db objects 
 var Db = require('mongodb').Db,
@@ -47,6 +46,8 @@ router.get('/:username/Profile',function(req,res,next){
                     if (doc != null) {
                         var documents = doc.Courses ; 
                         console.log("Found");
+                        req.session.user = doc;
+                        req.session.Logged = true ; 
                         res.render('profile', { title: 'User Profile Page', username: username, documents:documents});
                     }
                     else {
