@@ -28,7 +28,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    Store: new MongoStore({
+    secret: 'KralovecSecret',
+    saveUninitialized: false, // don't create session until something stored
+    resave: false, //don't save session if unmodified
+    store: new MongoStore({
       url: 'mongodb://localhost/AlphaLearning',
       autoRemove: 'interval',
       autoRemoveInterval: 10 // In minutes. Default
