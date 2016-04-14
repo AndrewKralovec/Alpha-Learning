@@ -46,6 +46,8 @@ router.get('/:username/Profile',function(req,res,next){
                     if (doc != null) {
                         var documents = doc.Courses ; 
                         console.log("Found");
+                        req.session.user = doc;
+                        req.session.Logged = true ; 
                         res.render('profile', { title: 'User Profile Page', username: username, documents:documents});
                     }
                     else {
@@ -56,6 +58,8 @@ router.get('/:username/Profile',function(req,res,next){
 });
 // Test out quiz pages
 router.get('/:username/Quiz',function(req,res,next){
+  var test = req.session.user ; 
+  console.log(test);
   res.render('quiz',{title:"Quiz "}); 
 });
 // ERROR

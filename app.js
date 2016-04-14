@@ -5,11 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // Configuring Passport
-var passport = require('passport');
-var expressSession = require('express-session');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-//var flash = require('connect-flash');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session); // TWO GOD DAMN HOURS FOR THIS FUCKING OBJECT. GOD DAMN
 
 var routes = require('./routes/index');
 var login = require('./routes/login');
@@ -18,14 +15,6 @@ var courses = require('./routes/courses');
 var upload = require('./routes/upload');
 var post = require('./routes/post');
 var app = express();
-
-var User = ({
-    username: String,
-    password: String,
-    email: String,
-    gender: String,
-    address: String
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,21 +27,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Configuring Passport & Express session 
-app.use(require('express-session')({
+app.use(session({
     secret: 'KralovecSecret',
-    resave: false,
-    saveUninitialized: false
+    saveUninitialized: false, // don't create session until something stored
+    resave: false, //don't save session if unmodified
+    store: new MongoStore({
+      url: 'mongodb://localhost/AlphaLearning',
+      autoRemove: 'interval',
+      autoRemoveInterval: 10 // In minutes. Default
+    })
 }));
-app.use(passport.initialize());
-app.use(passport.session());
 
-
- // Using the flash middleware provided by connect-flash to store messages in session
- // and displaying in templates
-//var flash = require('connect-flash');
-//app.use(flash());
 
 // Have root route to the login page.
 // Once sessions are in place, the routes will resemble a average websites. 
@@ -62,13 +47,6 @@ app.use('/NewUserAccount', account); // Looks ulgy need to renamte this route
 app.use('/Courses', courses);
 app.use('/upload', upload);
 app.use('/post',post);
-
-// passport config
-/*var Account = User ; 
-passport.use(new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());*/
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
