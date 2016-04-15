@@ -20,16 +20,6 @@ router.get('/', function (req, res, next) {
     res.render('login', { title: 'Login page' });
 });
 
-/*app.use(session({
-    secret: "somescretkeyhere",
-    resave: true,
-    saveUnitializaed: true,
-    store: new MongoStore({
-        url: 'mongodb://localhost/AlphaLearning/Accounts',
-        touchAfter: 24 * 3600
-    })
-}));*/
-
 // Listen for Seach collection request
 router.post('/loginRequest', function (req, res, next) {
     var databaseName = "AlphaLearning", collection = "Accounts";
