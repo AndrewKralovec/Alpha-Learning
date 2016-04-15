@@ -14,7 +14,11 @@ var Db = require('mongodb').Db,
     Grid = require('mongodb').Grid,
     Code = require('mongodb').Code,
     assert = require('assert');
-    
+
+router.get('/', function (req, res, next) {
+    res.render('courses', { title: 'Course Page'});
+}); 
+
 // Will add :CourseName
 router.get('/:CourseName', function (req, res, next) {
     var CourseName = req.params.CourseName;
