@@ -14,29 +14,18 @@ var Db = require('mongodb').Db,
     Grid = require('mongodb').Grid,
     Code = require('mongodb').Code,
     assert = require('assert');
-    
-var queu = {
-    map: [],
-    push : function(data) {
-        this.map.push(data); 
-    }
-};
 
 router.get('/', function (req, res, next) {
     var test = next
-    res.render('courses', { title: 'Course Page' });
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
     db.open(function (err, db) {
-        var cursor = db.collection('Courses').find().forEach(function (doc) {
-            console.log("loaded: " + doc.name);
-            queu.push(doc.name)
-        });
+        var cursor = db.collection('Courses').find().toArray(function(err, documents) {
+        //assert.equal(1, documents.length);
+        db.close();
+        res.render('courses', { title: 'Course Page',Courses:documents });
+      });
     });
-}, function (req, res, next) {
-    console.log(queu); 
-    res.render('courses', { title: 'Course Page' });
 });
-
 
 // Will add :CourseName
 router.get('/:CourseName', function (req, res, next) {
@@ -52,7 +41,7 @@ router.get('/:CourseName', function (req, res, next) {
                 res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
             }
             else {
-                res.render('error', { title: 'Error Page' });
+                res.render('fourOfour', { title: 'Error Page', message:CourseName });
             }
         });
     });

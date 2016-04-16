@@ -3,7 +3,7 @@ extends layout
 block content
   script(src="/javascripts/coursesCtrl.js")
   // Page Content
-  .container(ng-app='coursesModule', ng-controller='coursesCtrl')
+  .container(ng-app='coursesModule', ng-controller='coursesCtrl', ng-init="Courses= #{JSON.stringify(Courses)}")
     // Page Header
     .row
       .col-lg-12
@@ -13,7 +13,7 @@ block content
     // Portfolio Row
     .row
       // Course portfolio 
-      .col-md-6.portfolio-item(ng-repeat='portfolio in portfolios')
+      .col-md-6.portfolio-item(ng-repeat='portfolio in Courses')
         a(href='#')
           img.img-responsive(src='http://placehold.it/700x400', alt='')
         h3

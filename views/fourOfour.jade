@@ -1,0 +1,31 @@
+// Created by Andrew Kralovec
+extends layout
+block content
+  .container
+    .row
+      .col-md-6.col-md-offset-3.text-center
+        br
+        h3 Alpha Learning
+        p
+          img(src='/images/AL_Icon.png', alt='')
+        h2
+          i.fa.fa-exclamation-triangle(style='color:red')
+          |  Page not found 
+        p
+          | Sorry, an error has occured, Requested page 
+          b '#{message}'
+          | not found!
+        p
+          a(href='#') Click here
+          |  to visit our home page
+        p
+          a(href='#') Alpha Learning
+        .error-actions
+          a.btn.btn-primary.btn-lg(href='http://www.jquery2dotnet.com')
+            i.fa.fa-home
+            | Take Me Home
+          a.btn.btn-default.btn-lg(href='http://www.jquery2dotnet.com')
+            i.fa.fa-envelope
+            |  Contact Support
+
+
