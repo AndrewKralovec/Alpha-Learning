@@ -3,8 +3,7 @@
   "name":"CS 435",
   "path":"Cs-435-address",
   "author":"Andrew Kralovec",
-  "Free":true,
-  "Paid":false,
+  "Private":true,
   "Associated Term": "",
   "Registration Dates": "",
   "Levels": "",
@@ -18,6 +17,9 @@
     "path":"",
     "description":""
   },
+  "keys":[
+    69,72
+  ],
   "Posts":[
     {
 			"id" : 0,
@@ -66,7 +68,7 @@
     {
 			"id" : 0,
       "name":"First quiz",
-      "path":"quiz path"
+      "path":"quiz-path"
 		}
   ]
 }

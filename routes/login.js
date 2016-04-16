@@ -20,20 +20,11 @@ router.get('/', function (req, res, next) {
     res.render('login', { title: 'Login page' });
 });
 
-/*app.use(session({
-    secret: "somescretkeyhere",
-    resave: true,
-    saveUnitializaed: true,
-    store: new MongoStore({
-        url: 'mongodb://localhost/AlphaLearning/Accounts',
-        touchAfter: 24 * 3600
-    })
-}));*/
-
 // Listen for Seach collection request
 router.post('/loginRequest', function (req, res, next) {
     var databaseName = "AlphaLearning", collection = "Accounts";
-    var username = req.session.body.username, password = req.body.password;
+    // TIM DONT TOUCH MY WORKING CODE 
+    var username = req.body.username, password = req.body.password;
     console.log("username: " + username + " password: " + password);
     var db = new Db(databaseName, new Server('localhost', 27017));
     db.open(function (err, db) {
@@ -44,15 +35,27 @@ router.post('/loginRequest', function (req, res, next) {
             assert.equal(null, err);
             if (doc != null) {
                 console.log("Found");
-                var address = "/home/"+username
+                req.session.user = doc ; 
+                req.session.Logged = true ; 
+                req.session.userId = doc.userid ; 
+                var address = "/home/"+username+"/Profile"
                 res.json({address:address});
+                db.close();
             }else {
                 res.status(400).json();
+                db.close();
             }
-            db.close();
         });
     });
-});
+}); 
+    
+
+router.get('/logout', function (req, res) {
+  delete req.session.user ; 
+  delete req.session.userId ; 
+  req.session.Logged = false ; 
+  res.redirect('/');
+}); 
 
 router.get('/error', function (req, res, next) {
     res.render('error.jade', { title: 'Error Page'});

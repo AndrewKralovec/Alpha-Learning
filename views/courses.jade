@@ -1,0 +1,42 @@
+// Created by Andrew Kralovec
+extends layout
+block content
+  script(src="/javascripts/coursesCtrl.js")
+  // Page Content
+  .container(ng-app='coursesModule', ng-controller='coursesCtrl', ng-init="Courses= #{JSON.stringify(Courses)}")
+    // Page Header
+    .row
+      .col-lg-12
+        h1.page-header
+          | Page Heading
+          small Secondary Text
+    // Portfolio Row
+    .row
+      // Course portfolio 
+      .col-md-6.portfolio-item(ng-repeat='portfolio in Courses')
+        a(href='#')
+          img.img-responsive(src='http://placehold.it/700x400', alt='')
+        h3
+          a(href='#') Project One
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+    hr
+    // Pagination
+    .row.text-center
+      .col-lg-12
+        ul.pagination
+          li
+            a(href='#') «
+          li.active
+            a(href='#') 1
+          li
+            a(href='#') 2
+          li
+            a(href='#') 3
+          li
+            a(href='#') 4
+          li
+            a(href='#') 5
+          li
+            a(href='#') »
+    hr
