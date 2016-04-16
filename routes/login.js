@@ -47,15 +47,12 @@ router.post('/loginRequest', function (req, res, next) {
             }
         });
     });
-});
-
-var clear = function(){
-    delete req.session.user_id;
-}; 
+}); 
     
 
 router.get('/logout', function (req, res) {
   delete req.session.user ; 
+  delete req.session.userId ; 
   req.session.Logged = false ; 
   res.redirect('/');
 }); 

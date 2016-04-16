@@ -41,20 +41,14 @@ router.get('/:CourseName', function (req, res, next) {
                 if(doc.Private){
                     var unlock = keys.indexOf(parseInt(req.session.userId));
                     console.log(unlock); 
-                    if(unlock != null && unlock > -1){
-                        console.log("allowed"); 
-                        res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
-                        db.close(); 
-                    }else{
+                    if(unlock == null || unlock < 0){
                         console.log("Not allowed"); 
                         res.render('fourOfour', { title: 'Error Page', message:CourseName });
                         db.close(); 
                     }
-                }else {
-                    console.log("Not private"); 
-                    res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
-                    db.close(); 
                 }
+                res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
+                db.close(); 
             }else {
                 console.log("404"); 
                 res.render('fourOfour', { title: 'Error Page', message:CourseName });
