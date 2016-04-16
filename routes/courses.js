@@ -16,7 +16,6 @@ var Db = require('mongodb').Db,
     assert = require('assert');
 
 router.get('/', function (req, res, next) {
-    var test = next
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
     db.open(function (err, db) {
         var cursor = db.collection('Courses').find().toArray(function(err, documents) {
@@ -37,11 +36,29 @@ router.get('/:CourseName', function (req, res, next) {
             assert.equal(null, err);
             if (doc != null) {
                 var Posts = doc.Posts;
+                var keys = doc.keys; 
                 console.log("Found");
-                res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
-            }
-            else {
+                if(doc.Private){
+                    var unlock = keys.indexOf(parseInt(req.session.userId));
+                    console.log(unlock); 
+                    if(unlock != null && unlock > -1){
+                        console.log("allowed"); 
+                        res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
+                        db.close(); 
+                    }else{
+                        console.log("Not allowed"); 
+                        res.render('fourOfour', { title: 'Error Page', message:CourseName });
+                        db.close(); 
+                    }
+                }else {
+                    console.log("Not private"); 
+                    res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
+                    db.close(); 
+                }
+            }else {
+                console.log("404"); 
                 res.render('fourOfour', { title: 'Error Page', message:CourseName });
+                db.close(); 
             }
         });
     });
@@ -49,6 +66,10 @@ router.get('/:CourseName', function (req, res, next) {
 
 router.get('/:CourseName/post', function (req, res, next) {
     res.render('post', { title: 'Post Page' });
+});
+
+router.get('/fourOfour', function (req, res, next) {
+    res.render('fourOfour', { title: 'style test' });
 });
 
 router.get('/error', function (req, res, next) {

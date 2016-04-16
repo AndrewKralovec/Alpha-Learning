@@ -1,0 +1,105 @@
+{
+   "userid":"55",
+   "firstName":"Andrew",
+   "lastName":"Kralovec",
+   "username":"akrala",
+   "password" : "root", 
+   "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/brandonflatsoda/128.jpg",
+   "email":"email@hotmail.com",
+   "address":{
+   },
+   "Courses":[
+		{
+			"id" : 0,
+			"name" : "CS 435",
+			"image" : "prefix-1.png",
+      "path":"Cs-435-address" 
+		},
+		{
+			"id" : 1,
+			"name" : "CS 410",
+			"image" : "prefix-2.png",
+      "path":"Cs-410-address" 
+		},
+		{
+			"id" : 2,
+			"name" : "CS 440",
+			"image" : "prefix-3.png",
+      "path":"Cs-440-address"  
+		}
+   ],
+   "Documents":[
+     
+   ]
+}
+
+{
+   "userid":"69",
+   "firstName":"John",
+   "lastName":"Doe",
+   "username":"JonnyD",
+   "password" : "12345", 
+   "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/brandonflatsoda/128.jpg",
+   "email":"email@hotmail.com",
+   "address":{
+   },
+   "Courses":[
+		{
+			"id" : 0,
+			"name" : "CS 435",
+			"image" : "prefix-1.png",
+      "path":"Cs-435-address" 
+		},
+		{
+			"id" : 1,
+			"name" : "CS 410",
+			"image" : "prefix-2.png",
+      "path":"Cs-410-address" 
+		},
+		{
+			"id" : 2,
+			"name" : "CS 440",
+			"image" : "prefix-3.png",
+      "path":"Cs-440-address"  
+		}
+   ],
+   "Documents":[
+     
+   ]
+}
+
+{
+   "userid":"72",
+   "firstName":"Mike",
+   "lastName":"Hunt",
+   "username":"Baker",
+   "password" : "4444", 
+   "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/brandonflatsoda/128.jpg",
+   "email":"email@hotmail.com",
+   "address":{
+   },
+   "Courses":[
+		{
+			"id" : 0,
+			"name" : "CS 435",
+			"image" : "prefix-1.png",
+      "path":"Cs-435-address" 
+		},
+		{
+			"id" : 1,
+			"name" : "CS 410",
+			"image" : "prefix-2.png",
+      "path":"Cs-410-address" 
+		},
+		{
+			"id" : 2,
+			"name" : "CS 440",
+			"image" : "prefix-3.png",
+      "path":"Cs-440-address"  
+		}
+   ],
+   "Documents":[
+     
+   ]
+}
+

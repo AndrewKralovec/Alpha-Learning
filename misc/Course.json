@@ -2,6 +2,7 @@
 	"id" : 0,
   "name":"CS 435",
   "path":"Cs-435-address",
+  "public":"true",
   "Associated Term": "",
   "Registration Dates": "",
   "Levels": "",
@@ -15,6 +16,9 @@
     "path":"",
     "description":""
   },
+  "keys":[
+    
+  ],
   "Posts":[
     {
 			"id" : 0,
