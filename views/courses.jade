@@ -1,60 +1,23 @@
 // Created by Andrew Kralovec
 extends layout
 block content
+  script(src="/javascripts/coursesCtrl.js")
   // Page Content
-  .container
+  .container(ng-app='coursesModule', ng-controller='coursesCtrl')
     // Page Header
     .row
       .col-lg-12
         h1.page-header
           | Page Heading
           small Secondary Text
-    // Projects Row
+    // Portfolio Row
     .row
-      .col-md-6.portfolio-item
+      // Course portfolio 
+      .col-md-6.portfolio-item(ng-repeat='portfolio in portfolios')
         a(href='#')
           img.img-responsive(src='http://placehold.it/700x400', alt='')
         h3
           a(href='#') Project One
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-      .col-md-6.portfolio-item
-        a(href='#')
-          img.img-responsive(src='http://placehold.it/700x400', alt='')
-        h3
-          a(href='#') Project Two
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-    // Projects Row
-    .row
-      .col-md-6.portfolio-item
-        a(href='#')
-          img.img-responsive(src='http://placehold.it/700x400', alt='')
-        h3
-          a(href='#') Project Three
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-      .col-md-6.portfolio-item
-        a(href='#')
-          img.img-responsive(src='http://placehold.it/700x400', alt='')
-        h3
-          a(href='#') Project Four
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-    // Projects Row
-    .row
-      .col-md-6.portfolio-item
-        a(href='#')
-          img.img-responsive(src='http://placehold.it/700x400', alt='')
-        h3
-          a(href='#') Project Five
-        p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-      .col-md-6.portfolio-item
-        a(href='#')
-          img.img-responsive(src='http://placehold.it/700x400', alt='')
-        h3
-          a(href='#') Project Six
         p
           | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
     hr

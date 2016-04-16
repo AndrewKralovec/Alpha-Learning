@@ -9,16 +9,18 @@
     "angular": "*",
     "angular-animate": "*",
     "angular-route": "*",
+    "async": "^2.0.0-rc.3",
     "bluebird": "*",
     "body-parser": "~1.13.2",
-    "connect-mongo": "^1.1.0",
     "connect": "1.8.5",
+    "connect-mongo": "^1.1.0",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "express-session": "*",
     "jade": "~1.11.0",
     "jsonwebtoken": "*",
+    "mocha": "*",
     "mongodb": "^2.1.14",
     "mongoose": "^4.4.11",
     "morgan": "~1.6.1",
@@ -27,7 +29,6 @@
     "passport": "*",
     "passport-local": "*",
     "serve-favicon": "~2.3.0",
-    "mocha":"*",
     "stylus": "0.42.3"
   }
 }
