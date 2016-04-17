@@ -42,17 +42,21 @@ router.get('/:CourseName', function (req, res, next) {
                     var unlock = keys.indexOf(parseInt(req.session.userId));
                     console.log(unlock); 
                     if(unlock == null || unlock < 0){
-                        console.log("Not allowed"); 
-                        res.render('fourOfour', { title: 'Error Page', message:CourseName });
                         db.close(); 
+                        console.log("Not allowed"); 
+                        res.render('private', { title: 'Error Page', message:CourseName });
                     }
                 }
-                res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
-                db.close(); 
+                // Fix middleware not being faster enough
+                if (!res.headersSent){
+                    res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
+                    db.close(); 
+                }
             }else {
-                console.log("404"); 
-                res.render('fourOfour', { title: 'Error Page', message:CourseName });
-                db.close(); 
+                if (!res.headersSent){
+                    res.render('fourOfour', { title: 'Error Page', message:CourseName });
+                    db.close(); 
+                }
             }
         });
     });

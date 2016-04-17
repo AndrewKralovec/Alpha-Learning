@@ -8,18 +8,48 @@ block content
     .row
       .col-lg-12
         h1.page-header
-          | Page Heading
-          small Secondary Text
+          | AlphaLearning Courses
+          small Learn, Share, Enjoy
+    // Search bar Row 
+    .row(style='padding: 10px;')
+      .col-xs-8.col-xs-offset-1
+        .input-group
+          .input-group-btn.search-panel
+            button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+              span#search_concept Filter by
+              span.caret
+            // Set values later
+            ul.dropdown-menu(role='menu')
+              li
+                a(href='#contains') Contains
+              li
+                a(href='#its_equal') It's equal
+              li
+                a(href='#greather_than') Greather than >
+              li
+                a(href='#less_than') Less than < 
+              li.divider
+              li
+                a(href='#all') Anything
+          input#search_param(name='search_param', value='all', type='hidden')
+          input.form-control(name='x', placeholder='Search Courses...', type='text')
+          span.input-group-btn
+            button.btn.btn-default(type='button')
+              i.fa.fa-search
+      .col-xs-3
+        .input-group
+          .input-group-btn.search-panel
+            a.btn.btn-primary Create New Course
     // Portfolio Row
     .row
       // Course portfolio 
       .col-md-6.portfolio-item(ng-repeat='portfolio in Courses')
         a(href='#')
-          img.img-responsive(src='http://placehold.it/700x400', alt='')
+          img.img-responsive(ng-src='/images/{{portfolio.Thumbnail}}', style='width:700px; height:300px;', alt='')
         h3
-          a(href='#') Project One
+          a(href='/Courses/{{portfolio.path}}') {{portfolio.name}}
         p
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+          | Description {{portfolio.description}}
     hr
     // Pagination
     .row.text-center
