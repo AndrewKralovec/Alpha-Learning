@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>This one Awesome Quiz</h2>
+
+    <input type = "text" ng-model="app.thing"/>
+    <button class="bnt orange" ng-click = "app.submit(app.thing)"> Submit </button>
+    <button class="but blue" ng-click = "app.show()"> Show </button>
+
+    <div ng-repeat = "thing in app.thingsFromMongo">
+        {{thing}}
+    </div>
+
+    <div>
+        <label>Question: </label>
+        <input type="text" ng-model="Question" placeholder ="question"><br>
+    </div>
+
+    <div>
+        <label>A: </label>
+        <input type="text" ng-model="A" placeholder ="Option A"><br>
+    </div>
+
+    <div>
+        <label>B: </label>
+        <input type="text" ng-model="B" placeholder ="Option B"><br>
+    </div>
+
+    <div>
+        <label>C: </label>
+        <input type="text" ng-model="C" placeholder ="Option C"><br>
+    </div>
+
+    <div>
+        <label>D: </label>
+        <input type="text" ng-model="D" placeholder ="Option D"><br>
+    </div>
+
+    <button class="bnt orange" ng-click="Next()"> Next</button>
+    <button class="but blue" ng-click="Finish()">Finish</button>
+</div>
