@@ -1,5 +1,4 @@
 {
-	"_id" : ObjectId("57130751d360352a14cd37cb"),
 	"id" : 1,
 	"name" : "AngularJS",
 	"path" : "AngularJS-address",
@@ -10,7 +9,7 @@
 	"Levels" : "",
 	"Location" : "",
 	"Credits" : "",
-	"Textbook" : "Pro AngularJS by A. Freeman",
+	"TextAssignment" : "Pro AngularJS by A. Freeman",
 	"Thumbnail" : "AngularJS.png",
   "description" : "Learn to build web apps using AngularJS 2.x. By the end of the course, you'll be able to use AngularJS to create your own apps.",
 	"RecentPost" : {
@@ -37,11 +36,16 @@
         "Image" : "GettingReady.png",
         "Author" : "Andrew Kralovec",
         "timestamp" : "Feb 28, 2016 at 10:00 PM",
-        "Content":"",
+        "Content":"Part 1: Getting ReadyPart 1 of this Assignment provides the information you need to get ready for the rest of the Assignment. It includes this chapter andprimers/refreshers for HTML, CSS, and JavaScript. I also show you how to build your first AngularJS application andtake you through the process of building a more realistic application, called SportsStore.Part 2: Working with AngularJSPart 2 of this Assignment takes you through the features of the AngularJS library, starting with an overview of the differenttypes of components in an AngularJS application and then working through each type in turn. AngularJS includesa lot of built-in functionality, which I describe in depth, and provides endless customization options, all of whichI demonstrate.Part 3: AngularJS Modules and ServicesPart 3 of this Assignment explains the roles that two important components play in AngularJS: modules and services. I showyou the different ways you can create both components and explain the wide range of built-in services that AngularJSprovides. This includes support for simplifying Single-Page Application development, Ajax and RESTful APIs, andunit testing.",
         "Files":[
-          {"name":"Fake File "},
-          {"name":"Fake File "}
-        ]
+          {"Name":"Fake File ", "Type":"DOCX"}
+        ],
+				"Comments":[
+					{
+						"TimeStamp":"Feb 29, 2016 at 1:00 PM",
+						"Content":"Does anyone know where i should save the AngularJS script?"
+					}
+				]
       }
 		},
 		{
@@ -70,7 +74,7 @@
 			"timestamp" : "March 31, 2016 at 11:00 PM",
 			"path" : "Thrid-Post-address",
       "Caption":"Lesson One \n",
-			"description" : "In this less i will provide a quick tour of the most important features of the JavaScript language, as they apply to thisbook. I don’t have the space to describe JavaScript completely, but I have focused on the essentials that you’ll needto get up to speed and follow the examples in this book. In addition to the most important core JavaScript languagefeatures, I describe the set of utility methods that AngularJS provides."
+			"description" : "In this less i will provide a quick tour of the most important features of the JavaScript language, as they apply to thisAssignment. I don’t have the space to describe JavaScript completely, but I have focused on the essentials that you’ll needto get up to speed and follow the examples in this Assignment. In addition to the most important core JavaScript languagefeatures, I describe the set of utility methods that AngularJS provides."
 		}
 	],
 	"Quizzes" : [
