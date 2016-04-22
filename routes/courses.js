@@ -49,7 +49,7 @@ router.get('/:CourseName', function (req, res, next) {
                 }
                 // Fix middleware not being faster enough
                 if (!res.headersSent){
-                    res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts });
+                    res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts, Course:doc });
                     db.close(); 
                 }
             }else {
@@ -62,8 +62,13 @@ router.get('/:CourseName', function (req, res, next) {
     });
 });
 
-router.get('/:CourseName/post', function (req, res, next) {
+router.get('/:CourseName/post/:PostName', function (req, res, next) {
     res.render('post', { title: 'Post Page' });
+});
+
+// Test out quiz pages
+router.get('/:CourseName/Quiz/:QuizName',function(req,res,next){
+  res.render('quiz',{title:"Quiz "}); 
 });
 
 router.get('/fourOfour', function (req, res, next) {

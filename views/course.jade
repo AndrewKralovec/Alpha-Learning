@@ -4,16 +4,17 @@ block content
   // Course Controller file 
   script(src="/javascripts/courseCtrl.js")
   // Page Content
-  .container(ng-app='courseModule', ng-controller='courseCtrl' , ng-init="Posts= #{JSON.stringify(Posts)}")
+  .container(ng-app='courseModule', ng-controller='courseCtrl' , ng-init="Course= #{JSON.stringify(Course)}")
     .row
       // Page Entries Column
       .col-md-8
         h1.page-header(ng-model='CourseName', ng-init="CourseName= #{JSON.stringify(CourseName)}")
           | {{CourseName}}
-          small   Feed Page
+          // Debuging Purpose
+          small(ng-model='currentUrl')   {{currentUrl}}
         // Course Feed post
-        h2(ng-model='count' ng-init="count=Posts.length ; halfCount=Math.round(Posts.length/2)") Count: {{count}}
-        .CourseContainer(ng-repeat='post in Posts | filter:search:strict', style='padding: 5px;')
+        h2(ng-model='count' ng-init="count=Course.Posts.length ; halfCount=Math.round(Course.Posts.length/2)") Count: {{count}}
+        .CourseContainer(ng-repeat='post in Course.Posts | filter:search:strict', style='padding: 5px;')
           h2
             a(href='#') {{post.name}}
           // Maybe remove the author option
@@ -28,7 +29,7 @@ block content
           img.img-responsive(ng-src='/images/{{post.image}}', alt='', style='max-width:300px; max-height:300px;')
           hr
           p
-            b Caption Description
+            b {{post.Caption}}
             |  {{post.description}}
           a.btn.btn-primary(href='/Courses/{{post.path}}')
             | Read More 
@@ -57,13 +58,9 @@ block content
             // Category 1
             .col-lg-6
               ul.list-unstyled
-                li(ng-repeat='post in Posts |filter:range(1,halfCount)')
-                  a(href='#') {{post.name}}
+                li(ng-repeat='post in Course.Posts')
+                  a(href='{{post.path}}') {{post.name}}
             // Category 2
-            .col-lg-6
-              ul.list-unstyled
-                li(ng-repeat='post in Posts |filter:range((halfCount+1),count)')
-                  a(href='#') {{post.name}}
         // Side Widget Well
         .well
           h4 Course quizes
@@ -71,25 +68,21 @@ block content
             // Category 1
             .col-lg-6
               ul.list-unstyled
-                li(ng-repeat='post in Posts |filter:range(1,halfCount)')
-                  a(href='#') {{post.name}}
+                li(ng-repeat='quiz in Course.Quizzes')
+                  a(href='{{quiz.path}}') {{quiz.name}}
             // Category 2
-            .col-lg-6
-              ul.list-unstyled
-                li(ng-repeat='post in Posts |filter:range((halfCount+1),count)')
-                  a(href='#') {{post.name}}
         .well
           h4 User Posts
           .row
             // Category 1
             .col-lg-6
               ul.list-unstyled
-                li(ng-repeat='post in Posts |filter:range(1,halfCount)')
+                li(ng-repeat='post in Course.Posts')
                   a(href='#') {{post.name}}
             // Category 2
             .col-lg-6
               ul.list-unstyled
-                li(ng-repeat='post in Posts |filter:range((halfCount+1),count)')
+                li(ng-repeat='post in Posts')
                   a(href='#') {{post.name}}
         .well
           h4 Reputation (200)
