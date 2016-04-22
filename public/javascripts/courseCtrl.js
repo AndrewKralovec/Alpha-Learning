@@ -5,6 +5,7 @@
  */
 var app = angular.module('courseModule', [],function($locationProvider){
     // Rewrite $locationProvider, to use hashbang as default mode.
+    // ALL link tags must have the '_self', so it puts the new document in the same window and frame as the current document.
     $locationProvider.html5Mode(true);
 });
 app.controller('courseCtrl', function ($scope, $http, $location) {

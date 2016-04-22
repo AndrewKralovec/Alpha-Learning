@@ -62,7 +62,8 @@ router.get('/:CourseName', function (req, res, next) {
     });
 });
 
-router.get('/:CourseName/post/:PostName', function (req, res, next) {
+// Could change to '/:CourseName/post/:PostName', if we want to to restrict the route folder 
+router.get('/:CourseName/:PostName', function (req, res, next) {
     res.render('post', { title: 'Post Page' });
 });
 
