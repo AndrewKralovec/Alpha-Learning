@@ -31,7 +31,7 @@ block content
           p
             b {{post.Caption}}
             |  {{post.description}}
-          a.btn.btn-primary(href='target="_self", {{currentUrl}}{{post.path}}')
+          a.btn.btn-primary(target="_self",href='{{currentUrl}}/{{post.path}}')
             | Read More 
             i.fa.fa-arrow-circle-right
           hr
@@ -61,6 +61,11 @@ block content
                 li(ng-repeat='post in Course.Posts')
                   // 
                   a(target="_self", href='{{currentUrl}}{{post.path}}') {{post.name}}
+          .row
+            .alert.alert-info
+              strong Create 
+              | a new Post 
+              a.fa.fa-external-link-square.icon-rounded.fa-2x(href='#', role='button', style="float:right")    
             // Category 2
         // Side Widget Well
         .well
@@ -71,6 +76,11 @@ block content
               ul.list-unstyled
                 li(ng-repeat='quiz in Course.Quizzes')
                   a(target="_self", href='{{currentUrl}}/Quiz/{{quiz.path}}') {{quiz.name}}
+          .row
+            .alert.alert-info
+              strong Create 
+              | a new Quiz 
+              a.fa.fa-external-link-square.icon-rounded.fa-2x(href='#', role='button', style="float:right")
             // Category 2
         .well
           h4 User Posts
@@ -86,14 +96,20 @@ block content
                 li(ng-repeat='post in Posts')
                   a(href='#') {{post.name}}
         .well
-          h4 Reputation (200)
-          p
-            | You have no recent negative or positive
-            a reputation
-            | changes
-            .alert.alert-success(role='alert')
-              strong Well done!
-              i.pull-right.fa.fa-thumbs-up.icon-rounded.fa-2x  
+          .row
+            h4 Reputation (200)
+            p
+              | You have no recent negative or positive
+              a reputation
+              | changes
+              .alert.alert-success(role='alert')
+                strong Well done!
+                i.pull-right.fa.fa-thumbs-up.icon-rounded.fa-2x  
+          .row
+            .alert.alert-info
+              strong Load 
+              | Course page information
+              a.fa.fa-external-link-square.icon-rounded.fa-2x(href='#', role='button', style="float:right")
 // Andrew Kralovec 
    Course page, Template for the courses page.
    Recive Course object, and display its contents. 
