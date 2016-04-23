@@ -1,7 +1,7 @@
 // Created by Andrew Kralovec
 extends layout
 block content
-  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js")
+  script(src="/angular-sanitize/angular-sanitize.js")
   script(src="//tinymce.cachefly.net/4.0/tinymce.min.js")
   script(src="/javascripts/postCtrl.js")
 
@@ -9,4 +9,4 @@ block content
   .container(ng-app='postModule', ng-controller='postCtrl')
     form(method='post')
       textarea(ui-tinymce='', ng-model='tinymceModel')
-      button(ng-click='test()')
+      button(ng-click='test()') Click to test tag values

@@ -76,7 +76,7 @@ angular.module('ui.tinymce', [])
         }
     };
 }]);
-
+var angular_sanitize = require('angular-module-sanitize');
 var app = angular.module('postModule', ['ngSanitize','ui.tinymce']);
 app.controller('postCtrl', function ($scope, $sce) {
   //$scope.test = "<h1>Tags</h1>";
