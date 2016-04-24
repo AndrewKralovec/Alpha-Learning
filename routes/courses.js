@@ -14,7 +14,9 @@ var Db = require('mongodb').Db,
     Grid = require('mongodb').Grid,
     Code = require('mongodb').Code,
     assert = require('assert');
+var avaiable = false ; 
 
+// Index list out all the courses 
 router.get('/', function (req, res, next) {
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
     db.open(function (err, db) {
@@ -26,18 +28,20 @@ router.get('/', function (req, res, next) {
     });
 });
 
-// Will add :CourseName
+// Show Course page 
 router.get('/:CourseName', function (req, res, next) {
     var CourseName = req.params.CourseName;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
     db.open(function (err, db) {
-        // Get user object, This features will be removed once the sessions feature is added
+        // Get Course object, This features will be removed once the sessions feature is added
         db.collection('Courses').findOne({ path: CourseName }, function (err, doc) {
             assert.equal(null, err);
             if (doc != null) {
+                avaiable = true ; 
                 var Posts = doc.Posts;
                 var keys = doc.keys; 
                 console.log("Found");
+                // Check if the Couse is prive
                 if(doc.Private){
                     var unlock = keys.indexOf(parseInt(req.session.userId));
                     console.log(unlock); 
@@ -49,9 +53,10 @@ router.get('/:CourseName', function (req, res, next) {
                 }
                 // Fix middleware not being faster enough
                 if (!res.headersSent){
-                    res.render('course', { title: 'Course Page', CourseName: CourseName, Posts: Posts, Course:doc });
+                    res.render('course', { title: 'Course Page', CourseName: CourseName, Course:doc });
                     db.close(); 
                 }
+            // The Course does not exist
             }else {
                 if (!res.headersSent){
                     res.render('fourOfour', { title: 'Error Page', message:CourseName });
@@ -62,14 +67,15 @@ router.get('/:CourseName', function (req, res, next) {
     });
 });
 
-// Could change to '/:CourseName/post/:PostName', if we want to to restrict the route folder 
+// Could change to '/:CourseName/post/:PostName', if i want to to restrict the route folder 
 router.get('/:CourseName/:PostName', function (req, res, next) {
-    res.render('post', { title: 'Post Page' });
+
 });
 
 // Test out quiz pages
 router.get('/:CourseName/Quiz/:QuizName',function(req,res,next){
   res.render('quiz',{title:"Quiz "}); 
+  
 });
 
 router.get('/fourOfour', function (req, res, next) {

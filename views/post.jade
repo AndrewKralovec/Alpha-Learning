@@ -1,25 +1,24 @@
 //Created by Andrew Kralovec
 extends layout
-
 block content
     script(src="/javascripts/postCtrl.js")
     // Page Content
-    .container
+    .container(ng-app='postModule', ng-controller='postCtrl',, ng-init="Post= #{JSON.stringify(Post)}")
       .row
         // Blog Post Content Column
         .col-lg-8
           // Blog Post
           // Title
-          h1 Post Title
+          h1 {{Post.name}}
           // Author
           p.lead
             | by 
-            a(href='#') Author
+            a(href='#') {{Post.author}}
           hr
           // Date/Time
           p
             i.fa.fa-clock-o
-            |  Posted on August 24, 2013 at 9:00 PM
+            |  {{Post.timestamp}}
           hr
           // Preview Image
           .thumbnail
@@ -29,18 +28,7 @@ block content
               i.fa.fa-file
               |  Files attached
           hr
-          // Post Content
-          p.lead
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!
-          hr
+          {{Post.Content}}
           // Blog Comments
           // Comments Form
           .well

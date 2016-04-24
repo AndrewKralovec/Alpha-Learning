@@ -60,7 +60,7 @@ block content
               ul.list-unstyled
                 li(ng-repeat='post in Course.Posts')
                   // 
-                  a(target="_self", ng-click='postRequest({{currentUrl}}/{{post.path}},Course.Posts.Post)') {{post.name}}
+                  a(target="_self",href='{{currentUrl}}/{{post.path}}') {{post.name}}
           .row
             .alert.alert-info
               strong Create 

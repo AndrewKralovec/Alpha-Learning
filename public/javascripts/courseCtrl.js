@@ -11,9 +11,12 @@ var app = angular.module('courseModule', [], function ($locationProvider) {
 app.controller('courseCtrl', function ($scope, $http, $location) {
     $scope.Math = window.Math;
     $scope.currentUrl = $location.path();
-    $scope.postRequest = function (address,post) {
+    $scope.postRequest = function (path,post) {
+        var address = $scope.currentUrl.toString()+"/"+path.toString(); 
+        alert(address);
+        alert('/Courses/AngularJS-address/First-assignment-address'); 
         // Save speed, by posting arleady loaded post object to router 
-        $http.post(address, post).success(function (response) {
+        $http.post('/Courses/AngularJS-address/First-assignment-address', post).success(function (response) {
             // All good
         });
     };
