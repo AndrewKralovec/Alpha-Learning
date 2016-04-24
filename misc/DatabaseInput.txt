@@ -7,3 +7,4 @@ db.Accounts.insert({"firstName":"Andrew","lastName":"Kralovec","username":"akral
 
 ##############################################################
 
+db.Courses.find({name:"AngularJS"},{ Posts: { $elemMatch:{path:"First-assignment-address"}}});
