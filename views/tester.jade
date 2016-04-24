@@ -1,0 +1,58 @@
+// Created by Andrew Kralovec
+extends layout
+block content
+  script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js")
+  script(src="//tinymce.cachefly.net/4.0/tinymce.min.js")
+  script(src="/javascripts/postCtrl.js")
+  //link(href='/stylesheets/tester.css', rel='stylesheet')
+  // Page Content
+  .container.ng-scope(ng-app='postModule', ng-controller='postCtrl')
+    .row
+      .col-md-10.col-md-offset-1
+        .panel.panel-default
+          .panel-heading
+            strong Create Post
+            small  
+          .panel-body
+            form(name='myForm')
+              fieldset
+              .form-group
+                label(for='document-name') Post Title:
+                input.form-control(type='text', name='userName', ng-model='username', size='31', required='')
+                i(ng-show='myForm.userName.$error.required') *required
+                br
+                label(for='document-name') Post Photo:
+                input(type='file', ngf-select='', ng-model='picFile', name='file', accept='image/*', ngf-max-size='2MB', required='', ngf-model-invalid='errorFile')
+                i(ng-show='myForm.file.$error.required') *required
+                br
+                i(ng-show='myForm.file.$error.maxSize')
+                  | File too large
+                  | {{errorFile.size / 1000000|number:1}}MB: max 2M
+                img.thumb(ng-show='myForm.file.$valid', ngf-thumbnail='picFile')
+                button(ng-click='picFile = null', ng-show='picFile') Remove
+                br
+                button(ng-disabled='!myForm.$valid', ng-click='uploadPic(picFile)') Submit
+                span.progress(ng-show='picFile.progress >= 0')
+                  div(style='width:{{picFile.progress}}%', ng-bind="picFile.progress + '%'")
+                span(ng-show='picFile.result') Upload Successful
+                span.err(ng-show='errorMsg') {{errorMsg}}
+              br
+            // HTML styling for post Content
+            form(method='post')
+              // Tinymce Directive
+              textarea(ui-tinymce='', ng-model='tinymceModel')
+              button(ng-click='test()') Click to test tag values
+            // Attachments, Might have to create a seperate page for this one
+            br
+            h4 Attachments 
+            button(ngf-select='uploadFiles($files)', multiple='', accept='image/*') Select Files
+            br
+            br
+            | Files:
+            ul
+              li(ng-repeat='f in files', style='font:smaller')
+                | {{f.name}}
+            span.progress(ng-show='progress >= 0')
+              div(style='width:{{progress}}%', ng-bind="progress + '%'")
+            |     {{errorMsg}}
+

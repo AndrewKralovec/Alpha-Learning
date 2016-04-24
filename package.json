@@ -1,7 +1,8 @@
 {
-  "name": "ThatOneProject",
-  "version": "0.0.0",
+  "name": "AlphaLearning",
+  "version": "3.0.1",
   "private": true,
+  "author":"Andrew Kralovec",
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -9,6 +10,7 @@
     "angular": "*",
     "angular-animate": "*",
     "angular-route": "*",
+    "angular-sanitize":"*",
     "async": "^2.0.0-rc.3",
     "bluebird": "*",
     "body-parser": "~1.13.2",

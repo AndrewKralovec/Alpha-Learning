@@ -34,19 +34,14 @@ router.get('/:username/Profile',function(req,res,next){
                 });
             });
 });
-// Test out quiz pages
-router.get('/:username/Quiz',function(req,res,next){
-  var test = req.session.user ; 
-  console.log(test);
-  res.render('quiz',{title:"Quiz "}); 
-});
+
 // ERROR
 router.get('/error', function (req, res, next) {
     res.render('error', { title: 'Error Page'});
 });
 
-router.get('/post', function (req, res, next) {
-    res.render('post', {title: 'Create Post'});
+router.get('/tester', function (req, res, next) {
+    res.render('tester', {title: 'Tester Page'});
 });
 
 
