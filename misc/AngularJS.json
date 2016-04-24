@@ -12,13 +12,6 @@
 	"TextAssignment" : "Pro AngularJS by A. Freeman",
 	"Thumbnail" : "AngularJS.png",
   "description" : "Learn to build web apps using AngularJS 2.x. By the end of the course, you'll be able to use AngularJS to create your own apps.",
-	"RecentPost" : {
-		"TimeStamp" : "",
-		"Title" : "",
-		"Thumbnail" : "",
-		"path" : "",
-		"description" : ""
-	},
 	"keys" : [
 	],
 	"Posts" : [
@@ -44,6 +37,10 @@
 					{
 						"TimeStamp":"Feb 29, 2016 at 1:00 PM",
 						"Content":"Does anyone know where i should save the AngularJS script?"
+					},
+					{
+						"TimeStamp":"Feb 31, 2016 at 11:00 PM",
+						"Content":"I dont have time to do this entire project"
 					}
 				]
       }
