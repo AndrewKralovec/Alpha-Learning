@@ -1,6 +1,7 @@
 //Created by Andrew Kralovec
 extends layout
 block content
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js")
     script(src="/javascripts/postCtrl.js")
     // Page Content
     .container(ng-app='postModule', ng-controller='postCtrl',, ng-init="Post= #{JSON.stringify(Post)}")
@@ -28,7 +29,7 @@ block content
               i.fa.fa-file
               |  Files attached
           hr
-          {{Post.Content}}
+          {{Post.description}}
           // Blog Comments
           // Comments Form
           .well

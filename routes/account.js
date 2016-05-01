@@ -8,7 +8,7 @@ var app = express();
 router.get('/', function (req, res, next) {
     res.render('account', { title: 'Account Page', message :'Message'});
 });
-app
+
 router.get('/error', function (req, res, next) {
     res.render('error.jade', { title: 'Error Page'});
 });
