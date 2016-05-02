@@ -1,4 +1,4 @@
-/**
+/*
  * Created by Andrew Kralovec 
  */
 var express = require('express');
@@ -125,6 +125,7 @@ router.get('/:CourseName/:PostName', function(req, res, next) {
                     }
                 }
             },
+            // Render post object to page 
             function(err, doc) {
                 if (err)
                     throw err;
@@ -139,6 +140,7 @@ router.get('/:CourseName/:PostName', function(req, res, next) {
 
 // Test out quiz pages
 router.get('/:CourseName/Quiz/:QuizName', function(req, res, next) {
+    // Render quiz page 
     res.render('quiz', {
         title: "Quiz "
     });

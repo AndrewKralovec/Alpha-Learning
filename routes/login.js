@@ -49,7 +49,7 @@ router.post('/loginRequest', function (req, res, next) {
     });
 }); 
     
-
+// Log out route 
 router.get('/logout', function (req, res) {
   delete req.session.user ; 
   delete req.session.userId ; 
