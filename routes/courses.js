@@ -108,9 +108,7 @@ router.get('/:CourseName', function(req, res, next) {
 
 // Load post page 
 router.get('/:CourseName/:PostName', function(req, res, next) {
-    // Everthing is fucked
-    var CourseName = req.params.CourseName;
-    var PostName = req.params.PostName;
+    var path = req.params.PostName;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
     db.open(function(err, db) {
         // Pagnate to course
@@ -121,12 +119,17 @@ router.get('/:CourseName/:PostName', function(req, res, next) {
             {
                 Posts: {
                     $elemMatch: {
-                        path: "First-assignment-address"
+                        path: path
                     }
                 }
             },
             // Render post object to page 
             function(err, doc) {
+                if(doc == null){
+                    res.render('error', {
+                        title: "Post not found"
+                    });
+                }
                 if (err)
                     throw err;
                 var result = doc.Posts[0] ; 
