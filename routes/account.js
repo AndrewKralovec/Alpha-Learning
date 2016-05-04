@@ -6,7 +6,7 @@ var router = express.Router();
 var app = express(); 
 // Will add :username
 router.get('/', function (req, res, next) {
-    res.render('account', { title: 'Account Page', message :'Message'});
+    res.render('register', { title: 'Create a new account', message :'Message'});
 });
 
 router.get('/error', function (req, res, next) {

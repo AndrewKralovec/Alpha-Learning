@@ -4,34 +4,27 @@ block content
     link(href="/stylesheets/register.css", rel="stylesheet")
     script(src="/javascripts/registerCtrl.js")
     .container(ng-app='myApp', ng-controller='registerController')
-        .row.centered-form
+        .row.register-form
             .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
-                .panel.panel-default
-                    .panel-heading
-                        h3.panel-title
-                            | Please fill out the form to create a new Alpha-Learning account.
-                            small  It's free!
+                    .register.heading
+                        h2.register-title
+                            | Sign-up
                     .panel-body
                         form(action='/register', method='post')
                             .row
                                 .col-xs-6.col-sm-6.col-md-6
                                     .form-group
-                                        label First name
-                                        input#firstname.form-control.input-sm(type='text', name='firstname', placeholder='First Name')
+                                        input#firstname.form-control.input(type='text', name='firstname', placeholder='First Name')
                                 .col-xs-6.col-sm-6.col-md-6
                                     .form-group
-                                        label Last name
-                                        input#lastname.form-control.input-sm(type='text', name='lastname', placeholder='Last Name')
+                                        input#lastname.form-control.input(type='text', name='lastname', placeholder='Last Name')
                             .form-group
-                                label Email address
-                                input#email.form-control.input-sm(ng-model='email', type='email', name='email', placeholder='Email Address')
+                                input#username.form-control.input(ng-model='username', type='username', name='username', placeholder='Username', required='')
                             .row
                                 .col-xs-6.col-sm-6.col-md-6
                                     .form-group
-                                        label Password
-                                        input#password.form-control.input-sm(ng-model='password', type='password', name='password', placeholder='Password')
+                                        input#password.form-control.input(ng-model='password', type='password', name='password', placeholder='Password', required='')
                                 .col-xs-6.col-sm-6.col-md-6
                                     .form-group
-                                        label Confirm password
-                                        input#password_confirmation.form-control.input-sm(type='password', name='password_confirmation', placeholder='Confirm Password')
+                                        input#password_confirmation.form-control.input(type='password', name='password_confirmation', placeholder='Confirm Password')
                             button.btn.btn-lg.btn-primary.btn-block(ng-click='register(username,password,firstname,lastname)', type='submit') Register
