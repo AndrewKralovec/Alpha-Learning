@@ -1,0 +1,69 @@
+// Created by Andrew Kralovec
+extends layout
+block content
+  //script(src="/javascripts/coursesCtrl.js")
+  // Page Content
+  .container(ng-app='', ng-controller='', ng-init='')
+    // Page Header
+    .row
+      .panel.panel-violet
+        .panel-heading
+          | Order services
+        .panel-body.pan
+          form(action='#')
+            .form-body.pal
+              .row
+                .col-md-12
+                  .form-group
+                    .input-icon.right
+                      i.fa.fa-archive
+                      input#inputCourse.form-control(placeholder='Course Name', type='text')
+              .row
+                .col-md-6
+                  .form-group
+                    .input-icon.right
+                      i.fa.fa-envelope
+                      input#inputEmail.form-control(placeholder='E-mail', type='text')
+                .col-md-6
+                  .form-group
+                    .input-icon.right
+                      i.fa.fa-phone
+                      input#inputPhone.form-control(placeholder='Phone', type='text')
+              hr
+              .row
+                .col-md-6
+                  .form-group
+                    select.form-control
+                      option Interested in
+                      option(value='design') Design
+                      option(value='development') Development
+                      option(value='illustration') Illustration
+                      option(value='brading') Branding
+                      option(value='video') Video
+                .col-md-6
+                  .form-group
+                    select.form-control
+                      option Budget
+                      option(value='0') Less than 5000$
+                      option(value='1') 5000$ - 10000$
+                      option(value='2') 10000$ - 20000$
+                      option(value='3') More than 20000$
+              .row
+                .col-md-6
+                  .form-group
+                    .input-icon.right
+                      i.fa.fa-calendar
+                      input#inputStartDate.form-control(placeholder='Expected start date', type='text')
+                .col-md-6
+                  .form-group
+                    .input-icon.right
+                      i.fa.fa-calendar
+                      input#inputFinishDate.form-control(placeholder='Expected finish date', type='text')
+              .form-group
+                i.fa.fa-file-image-o
+                input#inputIncludeFile(placeholder='Inlcude some file', type='file')
+              .form-group.mbn
+                textarea.form-control(rows='5', placeholder='Tell us about your Course')
+            .form-actions.text-right.pal
+              button.btn.btn-primary(type='submit')
+                | Send request

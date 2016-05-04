@@ -1,3 +1,6 @@
+/*
+ * Created by Andrew Kralovec 
+ */
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -20,13 +23,15 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public','images','favicon.ico')));
 app.use(logger('dev'));
+// Support encoded bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// Add public and uplaods to static folders 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(session({
     secret: 'KralovecSecret',
     saveUninitialized: false, // don't create session until something stored
