@@ -1,35 +1,29 @@
 {
-   "userid":"55",
-   "firstName":"Andrew",
-   "lastName":"Kralovec",
-   "username":"akrala",
-   "password" : "root", 
-   "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/brandonflatsoda/128.jpg",
-   "email":"email@hotmail.com",
-   "address":{
-   },
-   "Courses":[
+	"userid" : "55",
+	"firstName" : "Andrew",
+	"lastName" : "Kralovec",
+	"username" : "akrala",
+	"password" : "root",
+	"avatar" : "ProfilPic.png",
+	"email" : "akrala@siu.edu",
+	"address" : {
+		
+	},
+	"courses" : [
 		{
 			"id" : 0,
 			"name" : "CS 435",
 			"image" : "prefix-1.png",
-      "path":"Cs-435-address" 
+			"path" : "Cs-435-address"
 		},
 		{
 			"id" : 1,
-			"name" : "CS 410",
+			"name" : "AngularJS",
 			"image" : "prefix-2.png",
-      "path":"Cs-410-address" 
-		},
-		{
-			"id" : 2,
-			"name" : "CS 440",
-			"image" : "prefix-3.png",
-      "path":"Cs-440-address"  
+			"path" : "AngularJS-address"
 		}
-   ],
-   "Documents":[
-     
-   ]
+	],
+	"Documents" : [ ]
 }
+
 

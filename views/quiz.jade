@@ -22,7 +22,7 @@ block content
           .score(style='padding-top: 10px; display: inline;')
             h3
               | Score : {{score}}  
-              a.element-animation4.btn.btn-lg.btn-primary.btn-primary(style='float: right;', href='#',ng-click='nextQuestion()')
+              button.element-animation4.btn.btn-lg.btn-primary.btn-primary(style='float: right;', href='#',ng-disabled="!correctAnswer",ng-click='nextQuestion()')
                 | Next &nbsp;
                 span.fa.fa-arrow-circle-right
           .correctOrNot(style='padding-top: 10px; display: inline;',ng-show='!answerMode')

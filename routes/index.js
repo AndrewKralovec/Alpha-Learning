@@ -26,12 +26,13 @@ router.get('/:username/Profile', function(req, res, next) {
         }, function(err, doc) {
             assert.equal(null, err);
             if (doc != null) {
-                var documents = doc.Courses;
+                var user = doc ; 
+                var courses = doc.courses;
                 console.log("Found");
                 res.render('profile', {
                     title: 'User Profile Page',
-                    username: username,
-                    documents: documents
+                    user: user, 
+                    courses: courses
                 });
             } else {
                 res.render('error', {
