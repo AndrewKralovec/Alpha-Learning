@@ -6,16 +6,16 @@ var router = express.Router();
 var fs = require('fs'); // Node file system
 
 // All possible mongo db objects 
-var Db = require('mongodb').Db,
-    MongoClient = require('mongodb').MongoClient,
-    Server = require('mongodb').Server,
-    ReplSetServers = require('mongodb').ReplSetServers,
-    ObjectID = require('mongodb').ObjectID,
-    Binary = require('mongodb').Binary,
-    GridStore = require('mongodb').GridStore,
-    Grid = require('mongodb').Grid,
-    Code = require('mongodb').Code,
-    assert = require('assert');
+var Db = require('mongodb').Db
+    , MongoClient = require('mongodb').MongoClient
+    , Server = require('mongodb').Server
+    , ReplSetServers = require('mongodb').ReplSetServers
+    , ObjectID = require('mongodb').ObjectID
+    , Binary = require('mongodb').Binary
+    , GridStore = require('mongodb').GridStore
+    , Grid = require('mongodb').Grid
+    , Code = require('mongodb').Code
+    , assert = require('assert');
 var avaiable = false;
 
 // Index, list out all the courses 
@@ -26,47 +26,62 @@ router.get('/', function(req, res, next) {
             //assert.equal(1, documents.length);
             db.close();
             res.render('courses', {
-                title: 'Course Page',
-                Courses: documents
+                title: 'Course Page'
+                , Courses: documents
             });
         });
     });
 });
 
 // Load create course page 
-router.get('/CreateCourse', function (req, res, next) {
+router.get('/CreateCourse', function(req, res, next) {
     res.render('createCourse', {
         title: 'Course Creation page'
     });
-}); 
+});
 
 // Post course to database 
-router.post('/CreateCourseReqest', isAuthenticated, function (req, res) {
+router.post('/CreateCourseReqest', isAuthenticated, function(req, res) {
     var course = req.body;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
-    db.open(function (err, db) {
+    db.open(function(err, db) {
         // Insert a document in the capped collection
-        db.collection('Courses').insert(course, { w: 1 }, function (err, result) {
+        db.collection('Courses').insert(course, {
+            w: 1
+        }, function(err, result) {
             assert.equal(null, err);
-            console.log("New Course added "+course);
+            console.log("New Course added " + course);
             //res.json("Course Created");
             db.close();
         });
     });
-}); 
+});
 
 // Load create Post page 
-router.get('/:CourseName/CreatePost', function(req, res, next) {
+router.get('/:CourseName/CreatePost', isAuthenticated, function(req, res, next) {
     res.render('tester', {
         title: 'Tester Page'
     });
 });
 
 // Post post obejct to database
-router.post('/:CourseName/CreatePostRequest', function(req, res, next) {
-    var x = req.body ;
-    var y = res ; 
-    var n = next; 
+router.post('/:CourseName/CreatePostRequest', isAuthenticated, function(req, res, next) {
+    var db = new Db('AlphaLearning', new Server('localhost', 27017));
+    db.open(function(err, db) {
+        // Insert a document in the capped collection
+        db.collection('Courses').update({
+            "id": 1
+        }, {
+            $push: {
+                "Posts": genPost(req.body)
+            }
+        }, function(err, result) {
+            assert.equal(null, err);
+            console.log("New Post added");
+            res.json(true);
+            db.close();
+        });
+    });
 });
 
 // Load Course page, since courses can be free, we wont authenticate users or require login
@@ -93,17 +108,19 @@ router.get('/:CourseName', function(req, res, next) {
                         db.close();
                         console.log("Not allowed");
                         res.render('private', {
-                            title: 'Error Page',
-                            message: CourseName
+                            title: 'Error Page'
+                            , message: CourseName
                         });
                     }
                 }
                 // Fix middleware not being fast enough
                 if (!res.headersSent) {
+                    // If in course or the course is open, load page 
+                    avaiable = true;
                     res.render('course', {
-                        title: 'Course Page',
-                        CourseName: CourseName,
-                        Course: doc
+                        title: 'Course Page'
+                        , CourseName: CourseName
+                        , Course: doc
                     });
                     db.close();
                 }
@@ -111,8 +128,8 @@ router.get('/:CourseName', function(req, res, next) {
             } else {
                 if (!res.headersSent) {
                     res.render('fourOfour', {
-                        title: 'Error Page',
-                        message: CourseName
+                        title: 'Error Page'
+                        , message: CourseName
                     });
                     db.close();
                 }
@@ -129,28 +146,28 @@ router.get('/:CourseName/:PostName', isAuthenticated, function(req, res, next) {
         // Pagnate to course
         db.collection('Courses').findOne({
                 name: "AngularJS"
-            },
-            // Find the matching element post 
+            }
+            , // Find the matching element post 
             {
                 Posts: {
                     $elemMatch: {
                         path: path
                     }
                 }
-            },
-            // Render post object to page 
+            }
+            , // Render post object to page 
             function(err, doc) {
-                if(doc == null){
+                if (doc == null) {
                     res.render('error', {
                         title: "Post not found"
                     });
                 }
                 if (err)
                     throw err;
-                var result = doc.Posts[0] ; 
+                var result = doc.Posts[0];
                 res.render('post', {
-                    title: "Post Page ",
-                    Post: result
+                    title: "Post Page "
+                    , Post: result
                 });
             });
     });
@@ -186,21 +203,30 @@ function isAuthenticated(req, res, next) {
     res.redirect('/');
 }
 
+// Authenticate user inside a private course 
+function isStudent(req, res, next) {
+    if (avaiable)
+        return next();
+    res.redirect('/Courses/');
+}
+
 // Create post 
-function genPost(data){
-var post = {
-			"id" : 3,
-			"filename" : "four.png",
-			"savename" : "file-1453095651163",
-			"filetype" : "image/png",
-			"Thumbnail" : "",
-			"name" : data.title,
-			"image" : "http://placehold.it/900x300",
-			"author" : "Andrew Kralovec",
-			"timestamp" : data.timestamp,
-			"path" : data.title+"-address",
-			"description" : data.description
-		}
+function genPost(data) {
+    var result = {
+        "id": 3
+        , "filename": "four.png"
+        , "savename": "file-1453095234163"
+        , "filetype": "image/png"
+        , "Thumbnail": ""
+        , "name": data.title
+        , "image": "900x300.png"
+        , "author": "Andrew Kralovec"
+        , "timestamp": data.timestamp
+        , "path": data.title + "-address"
+        , "description": data.description
+        , "content": data.content
+    }
+    return result;
 }
 
 module.exports = router;

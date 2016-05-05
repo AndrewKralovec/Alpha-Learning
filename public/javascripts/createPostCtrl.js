@@ -94,14 +94,15 @@ app.controller('postCtrl', function ($scope, $sce, $http) {
             'name': $scope.postTitle
             , 'content': $scope.tinymceModel
             , 'timestamp': Date.now()
-            , 'description': postDescription
+            , 'description': $scope.postDescription
         };
-        alert("This far");
         $http.post('/Courses/AngularJS-address/CreatePostRequest', obj)
         .then(function mySucces(response) {
             console.log(response);
+            alert("New Post Added"); 
         }, function myError(response) {
             console.log(response);
+            alert(response); 
         });
     }
 });
