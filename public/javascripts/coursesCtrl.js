@@ -5,7 +5,4 @@
  */
 var app = angular.module('coursesModule', []);
 app.controller('coursesCtrl', function ($scope, $http) {
-  
-  $scope.portfolios = [1,2,3,4,5,6] ; 
-
 });

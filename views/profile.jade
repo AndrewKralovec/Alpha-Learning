@@ -49,6 +49,9 @@ block content
                       a(href='/Courses/{{course.path}}') 
                         span.fa.fa-chevron-right
                         |  {{course.name}}
+                    li.divider  
+                    li
+                      a(href='/Courses', role='button')  Search 
             .col-xs-12.col-sm-4.text-center
               figure
                 img.img-circle.img-responsive(ng-src='/images/Avatars/{{user.avatar}}', alt='')
@@ -80,7 +83,7 @@ block content
             // Posts 
             .col-xs-12.col-sm-4.emphasis
               h2
-                strong 245
+                strong 3
               p
                 small Posts
               button.btn.btn-info.btn-block

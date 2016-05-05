@@ -33,15 +33,15 @@ router.get('/', function(req, res, next) {
     });
 });
 
-// Load Course page 
+// Load create course page 
 router.get('/CreateCourse', function (req, res, next) {
     res.render('createCourse', {
         title: 'Course Creation page'
     });
 }); 
 
-// Post Course to database 
-router.post('/CreateCourseReqest', function (req, res) {
+// Post course to database 
+router.post('/CreateCourseReqest', isAuthenticated, function (req, res) {
     var course = req.body;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
     db.open(function (err, db) {
@@ -54,7 +54,22 @@ router.post('/CreateCourseReqest', function (req, res) {
         });
     });
 }); 
-// Load Course page 
+
+// Load create Post page 
+router.get('/:CourseName/CreatePost', function(req, res, next) {
+    res.render('tester', {
+        title: 'Tester Page'
+    });
+});
+
+// Post post obejct to database
+router.post('/:CourseName/CreatePostRequest', function(req, res, next) {
+    var x = req.body ;
+    var y = res ; 
+    var n = next; 
+});
+
+// Load Course page, since courses can be free, we wont authenticate users or require login
 router.get('/:CourseName', function(req, res, next) {
     var CourseName = req.params.CourseName;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
@@ -107,7 +122,7 @@ router.get('/:CourseName', function(req, res, next) {
 });
 
 // Load post page 
-router.get('/:CourseName/:PostName', function(req, res, next) {
+router.get('/:CourseName/:PostName', isAuthenticated, function(req, res, next) {
     var path = req.params.PostName;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
     db.open(function(err, db) {
@@ -163,5 +178,29 @@ router.get('/error', function(req, res, next) {
         title: 'Error Page'
     });
 });
+
+// Authenticate user 
+function isAuthenticated(req, res, next) {
+    if (req.session.Logged)
+        return next();
+    res.redirect('/');
+}
+
+// Create post 
+function genPost(data){
+var post = {
+			"id" : 3,
+			"filename" : "four.png",
+			"savename" : "file-1453095651163",
+			"filetype" : "image/png",
+			"Thumbnail" : "",
+			"name" : data.title,
+			"image" : "http://placehold.it/900x300",
+			"author" : "Andrew Kralovec",
+			"timestamp" : data.timestamp,
+			"path" : data.title+"-address",
+			"description" : data.description
+		}
+}
 
 module.exports = router;

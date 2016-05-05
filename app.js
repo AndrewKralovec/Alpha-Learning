@@ -7,16 +7,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// Configuring Passport
+// Configuring sessions
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session); // TWO GOD DAMN HOURS FOR THIS FUCKING OBJECT. GOD DAMN
 
 var routes = require('./routes/index');
 var login = require('./routes/login');
-var account = require('./routes/account');
 var courses = require('./routes/courses');
 var upload = require('./routes/upload');
-var post = require('./routes/post');
 var app = express();
 
 // view engine setup
@@ -48,10 +46,8 @@ app.use(session({
 // Once sessions are in place, the routes will resemble a average websites. 
 app.use('/', login);
 app.use('/Home', routes);
-app.use('/NewUserAccount', account); // Looks ulgy need to renamte this route 
 app.use('/Courses', courses);
 app.use('/upload', upload);
-app.use('/post',post);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

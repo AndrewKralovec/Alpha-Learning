@@ -11,6 +11,7 @@
 	"Credits" : "",
 	"Textbook" : "Pro AngularJS by A. Freeman",
 	"Thumbnail" : "AngularJS.png",
+	"description" : "Learn to build web apps using AngularJS. By the end of the course, you'll be able to use AngularJS to create your own apps.", 
 	"RecentPost" : {
 		"TimeStamp" : "",
 		"Title" : "",
@@ -32,22 +33,22 @@
 			"timestamp" : "Feb 28, 2016 at 10:00 PM",
 			"path" : "First-assignment-address",
 			"description" : "This is our first Assignment. The best way to get started with AngularJS is to dive in and create a web application. In this Assignment you will be require to set up your environment for AngularJS",
-      "Content":"<h1>Part 1:</h1><br> Getting ReadyPart 1 of this Assignment provides the information you need to get ready for the rest of the Assignment. It includes this chapter andprimers/refreshers for HTML, CSS, and JavaScript. I also show you how to build your first AngularJS application andtake you through the process of building a more realistic application, called SportsStore.<br> <h1>Part 2:</h1><br> Working with AngularJSPart 2 of this Assignment takes you through the features of the AngularJS library, starting with an overview of the differenttypes of components in an AngularJS application and then working through each type in turn. AngularJS includesa lot of built-in functionality, which I describe in depth, and provides endless customization options, all of whichI demonstrate.<br><h1>Part 3:</h1><br> AngularJS Modules and ServicesPart 3 of this Assignment explains the roles that two important components play in AngularJS: modules and services. I showyou the different ways you can create both components and explain the wide range of built-in services that AngularJSprovides. This includes support for simplifying Single-Page Application development, Ajax and RESTful APIs, andunit testing.",
-      "Files":[
-        {"Name":"Fake File ", "Type":"DOCX"}
-      ],
-      "Comments":[
-        {
-          "TimeStamp":"Feb 29, 2016 at 1:00 PM",
-          "Content":"Does anyone know where i should save the AngularJS script?"
-        },
-        {
-          "TimeStamp":"Feb 31, 2016 at 11:00 PM",
-          "Content":"I dont have time to do this entire project"
-        }
-      ]
-		
-    },
+			"content":"<h1 style='text-align: center;'>Including angular scripts from</h1>The quickest way to get started is to point your html <code><span class='tag'>&lt;script&gt;</span></code> tag to a Google CDN URL. This way, you don't have to download anything or maintain a local copy.There are two types of angular script URLs you can point to, one for development and one for production:<ul><li><strong>angular.js</strong> — This is the human-readable, non-minified version, suitable for web development.</li><li><strong>angular.min.js</strong> — This is the minified version, which we strongly suggest you use in production.</li></ul><h1 style='text-align: center;'>Downloading and hosting angular files locally</h1>This option is for those who want to work with angular offline, or those who want to host the angular files on their own servers.If you navigate to <a href='http://code.angularjs.org/'>http://code.angularjs.org/</a>, you'll see a directory listing with all of the angular versions since we started releasing versioned build artifacts (quite late in the project lifetime). Each directory contains all artifacts that we released for a particular version. Download the version you want and have fun.Each directory under <a href='http://code.angularjs.org/'>http://code.angularjs.org/</a> includes the following set of files:<ul><li><strong><code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — This file is non-obfuscated, non-minified, and human-readable by opening it in any editor or browser. In order to get better error messages during development, you should always use this non-minified angular script.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>min</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — This is a minified and obfuscated version of <code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>js</span></code> created with the Closure compiler. Use this version for production in order to minimize the size of the application that is downloaded by your user's browser.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>zip</span></code></strong> — This is a zip archive that contains all of the files released for this angular version. Use this file to get everything in a single download.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>-</span><span class='pln'>mocks</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — This file contains an implementation of mocks that makes testing angular apps even easier. Your unit/integration test harness should load this file after <code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>js</span></code> is loaded.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>-</span><span class='pln'>scenario</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — This file is a very nifty JavaScript file that allows you to write and execute end-to-end tests for angular applications.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>-</span><span class='pln'>loader</span><span class='pun'>.</span><span class='pln'>min</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — Module loader for Angular modules. If you are loading multiple script files containing Angular modules, you can load them asynchronously and in any order as long as you load this file first. Often the contents of this file are copy&amp;pasted into the <code><span class='pln'>index</span><span class='pun'>.</span><span class='pln'>html</span></code> to avoid even the initial request to <code><span class='pln'>angular</span><span class='pun'>-</span><span class='pln'>loader</span><span class='pun'>.</span><span class='pln'>min</span><span class='pun'>.</span><span class='pln'>js</span></code>. See <a href='https://github.com/angular/angular-seed/blob/master/app/index-async.html'>angular-seed</a> for an example of usage.</li></ul>",
+			"comments":[
+				{
+					"username":"akrala",
+					"content":"Wow greate Job Andrew",
+					"avatar" : "ProfilPic.png",
+					"timestamp" : "Feb 28, 2016 at 11:00 PM"
+				},
+				{
+					"username":"akrala",
+					"content":"Thanks Andrew, you're looking sexy in that profile pic",
+					"avatar" : "ProfilPic.png",
+					"timestamp" : "Feb 30, 2016 at 11:00 PM"
+				}
+			]
+		},
 		{
 			"id" : 1,
 			"filename" : "Next.png",

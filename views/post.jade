@@ -17,19 +17,20 @@ block content
             a(href='#') {{Post.author}}
           hr
           // Date/Time
-          p
+          p()
             i.fa.fa-clock-o
             |  {{Post.timestamp}}
           hr
           // Preview Image
           .thumbnail
-            img.img-responsive(src='http://placehold.it/900x300', alt='')
+            img.img-responsive(ng-src='/images/{{Post.image}}', alt='{{Post.image}}',height='{{default.height}}', width='{{default.width}}')
             p Tets below
             h3
               i.fa.fa-file
               |  Files attached
           hr
-          {{Post.description}}
+          .post-content(ng-bind-html='sanitizeTrust(Post.content)')
+            {{Post.content}}
           // Blog Comments
           // Comments Form
           .well
@@ -42,31 +43,14 @@ block content
           // Posted Comments
           // Comment
           .media
-            a.pull-left(href='#')
-              img.media-object(src='http://placehold.it/64x64', alt='')
-            .media-body
-              h4.media-heading
-                | Start Bootstrap
-                small August 25, 2014 at 9:30 PM
-              |                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          // Comment
-          .media
-            a.pull-left(href='#')
-              img.media-object(src='http://placehold.it/64x64', alt='')
-            .media-body
-              h4.media-heading
-                | Start Bootstrap
-                small August 25, 2014 at 9:30 PM
-              |                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              // Nested Comment
-              .media
-                a.pull-left(href='#')
-                  img.media-object(src='http://placehold.it/64x64', alt='')
-                .media-body
-                  h4.media-heading
-                    | Nested Start Bootstrap
-                    small August 25, 2014 at 9:30 PM
-                  |                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            .comment-content(ng-repeat='comment in Post.comments') 
+              a.pull-left(href='#')
+                img.media-object(src='http://placehold.it/64x64',height='{{default.mediaHeight}}',width='{{default.mediaWidth}}' alt='')
+              .media-body
+                h4.media-heading
+                  | {{comment.username}}
+                  small {{comment.timestamp}}
+                | {{comment.content}}
         // Blog Sidebar Widgets Column
         .col-md-4
           // Blog Search Well

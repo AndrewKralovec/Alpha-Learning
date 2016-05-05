@@ -50,9 +50,4 @@ router.get('/error', function(req, res, next) {
     });
 });
 
-router.get('/tester', function(req, res, next) {
-    res.render('tester', {
-        title: 'Tester Page'
-    });
-});
 module.exports = router;
