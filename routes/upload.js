@@ -5,21 +5,11 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer'); //  middleware for handling multipart/form-data,
 var fs = require('fs'); // Nodejs middleware for handling the file system 
-var dir = './uploads';
-// Configuring appropriate storage 
-var storage = multer.diskStorage({
-    // Absolute path
-    destination: function(req, file, callback) {
-        callback(null, './uploads');
-    },
-    // Match the field name in the request body
-    filename: function(req, file, callback) {
-        callback(null, file.fieldname + '-' + Date.now());
-    }
-});
+var storage = require('.././modles/storage')('Test'); // storage folder. 
 var upload = multer({
-    storage: storage
-}).single('file');
+      storage: storage
+  }).single('file');
+  
 // All possible mongo db objects 
 var Db = require('mongodb').Db,
     MongoClient = require('mongodb').MongoClient,
