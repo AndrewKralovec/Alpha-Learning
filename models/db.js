@@ -39,7 +39,6 @@ model.find = function (db, collection, callback) {
 // Find document in database 
 model.findOne = function (db, collection, search, callback) {
     db.collection(collection).findOne(search, function (err, doc) {
-        assert.equal(err, null);
         if (doc !== null) {
             callback(null,doc);
         } else {
@@ -54,10 +53,9 @@ model.insert = function (db, collection, data, callback) {
     db.collection(collection).insert(data, {
         w: 1
     }, function (err, result) {
-        assert.equal(err, null);
         if (result !== null)
             console.log("Data inserted"); 
-        callback();
+        callback(err);
     });
 };
 

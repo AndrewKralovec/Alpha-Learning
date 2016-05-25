@@ -32,6 +32,18 @@
 			"outDir": null,
 			"localRoot": "${workspaceRoot}",
 			"remoteRoot": null
+		},
+		{
+		"request": "launch",
+		"name": "Debug Mocha Test",
+		"type": "node",
+		"program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+		"stopOnEntry": true,
+		"args": [".test",
+		"--timeout 50000"],
+		"cwd": "${workspaceRoot}",
+		"runtimeExecutable": null,
+		"env": { }
 		}
 	]
 }
