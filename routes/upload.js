@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer'); //  middleware for handling multipart/form-data,
 var fs = require('fs'); // Nodejs middleware for handling the file system 
-var storage = require('.././modles/storage')('Test'); // storage folder. 
+var storage = require('.././models/storage')('AngularJS'); // storage folder. 
 var upload = multer({
       storage: storage
   }).single('file');

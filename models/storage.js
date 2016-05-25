@@ -6,7 +6,7 @@ module.exports = function (name) {
         var storage = multer.diskStorage({
             // Absolute path
             destination: function (req, file, callback) {
-                callback(null, './uploads/');
+                callback(null, './uploads/'+name);
             },
             // Match the field name in the request body
             filename: function (req, file, callback) {
