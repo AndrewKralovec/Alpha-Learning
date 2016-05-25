@@ -1,0 +1,69 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/andrew/.nvm/v5.10.1/bin/node',
+1 verbose cli   '/home/andrew/.nvm/v5.10.1/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '–g',
+1 verbose cli   'mocha' ]
+2 info using npm@3.8.3
+3 info using node@v5.10.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData –g
+8 silly fetchPackageMetaData mocha@*
+9 silly fetchNamedPackageData mocha
+10 silly mapToRegistry name mocha
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry data Result {
+13 silly mapToRegistry   raw: 'mocha',
+13 silly mapToRegistry   scope: null,
+13 silly mapToRegistry   name: 'mocha',
+13 silly mapToRegistry   rawSpec: '',
+13 silly mapToRegistry   spec: 'latest',
+13 silly mapToRegistry   type: 'tag' }
+14 silly mapToRegistry uri https://registry.npmjs.org/mocha
+15 silly fetchOtherPackageData –g
+16 silly cache add args [ '–g', null ]
+17 verbose cache add spec –g
+18 silly cache add parsed spec Result {
+18 silly cache add   raw: '–g',
+18 silly cache add   scope: null,
+18 silly cache add   name: null,
+18 silly cache add   rawSpec: '–g',
+18 silly cache add   spec: '/home/andrew/Git/AlphaLearning/.unitTest/–g',
+18 silly cache add   type: 'local' }
+19 error addLocal Could not install /home/andrew/Git/AlphaLearning/.unitTest/–g
+20 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open '/home/andrew/Git/AlphaLearning/.unitTest/–g'
+20 silly fetchPackageMetaData     at Error (native)
+20 silly fetchPackageMetaData  error for –g { [Error: ENOENT: no such file or directory, open '/home/andrew/Git/AlphaLearning/.unitTest/–g']
+20 silly fetchPackageMetaData   errno: -2,
+20 silly fetchPackageMetaData   code: 'ENOENT',
+20 silly fetchPackageMetaData   syscall: 'open',
+20 silly fetchPackageMetaData   path: '/home/andrew/Git/AlphaLearning/.unitTest/–g' }
+21 verbose request uri https://registry.npmjs.org/mocha
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 10:29:46 AM
+24 verbose request id 97a27ba2e47cfe80
+25 verbose etag "3TU1VP5PLPCEF9M0RNOFNCTC2"
+26 http request GET https://registry.npmjs.org/mocha
+27 verbose stack TypeError: The header content contains invalid characters
+27 verbose stack     at ClientRequest.OutgoingMessage.setHeader (_http_outgoing.js:348:11)
+27 verbose stack     at new ClientRequest (_http_client.js:85:14)
+27 verbose stack     at Object.exports.request (http.js:31:10)
+27 verbose stack     at Object.exports.request (https.js:196:15)
+27 verbose stack     at Request.start (/home/andrew/.nvm/v5.10.1/lib/node_modules/npm/node_modules/request/request.js:747:30)
+27 verbose stack     at Request.end (/home/andrew/.nvm/v5.10.1/lib/node_modules/npm/node_modules/request/request.js:1381:10)
+27 verbose stack     at end (/home/andrew/.nvm/v5.10.1/lib/node_modules/npm/node_modules/request/request.js:575:14)
+27 verbose stack     at Immediate._onImmediate (/home/andrew/.nvm/v5.10.1/lib/node_modules/npm/node_modules/request/request.js:589:7)
+27 verbose stack     at tryOnImmediate (timers.js:534:15)
+27 verbose stack     at processImmediate [as _immediateCallback] (timers.js:514:5)
+28 verbose cwd /home/andrew/Git/AlphaLearning/.unitTest
+29 error Linux 3.16.0-71-generic
+30 error argv "/home/andrew/.nvm/v5.10.1/bin/node" "/home/andrew/.nvm/v5.10.1/bin/npm" "install" "–g" "mocha"
+31 error node v5.10.1
+32 error npm  v3.8.3
+33 error The header content contains invalid characters
+34 error If you need help, you may report this error at:
+34 error     <https://github.com/npm/npm/issues>
+35 verbose exit [ 1, true ]

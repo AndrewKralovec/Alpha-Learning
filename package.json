@@ -1,19 +1,32 @@
 {
   "name": "AlphaLearning",
-  "version": "3.0.3",
+  "version": "3.0.5",
   "private": true,
-  "author":"Andrew Kralovec",
+  "description": "E-learning web application developed in the Node.js environment",
+  "author": "Andrew Kralovec",
+  "contributors": [
+    {
+      "name": "Andrew Kralovec",
+      "email": "akrala@siu.edu"
+    }
+  ],
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndrewKralovec/NodeVideoStream"
   },
   "dependencies": {
     "angular": "*",
     "angular-animate": "*",
     "angular-route": "*",
-    "angular-sanitize":"*",
+    "angular-sanitize": "*",
     "async": "^2.0.0-rc.3",
     "bluebird": "*",
     "body-parser": "~1.13.2",
+    "chai": "*",
     "connect": "1.8.5",
     "connect-mongo": "^1.1.0",
     "cookie-parser": "~1.3.5",
@@ -22,7 +35,7 @@
     "express-session": "*",
     "jade": "~1.11.0",
     "jsonwebtoken": "*",
-    "mocha": "*",
+    "mocha": "^2.5.3",
     "mongodb": "^2.1.14",
     "mongoose": "^4.4.11",
     "morgan": "~1.6.1",

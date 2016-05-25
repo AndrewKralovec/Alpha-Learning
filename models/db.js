@@ -10,28 +10,40 @@ var Db = require('mongodb').Db,
     Grid = require('mongodb').Grid,
     Code = require('mongodb').Code,
     assert = require('assert');
+    
+model.sum = function(db, collection, callback){
+    // Perform a total count command
+    db.collection(collection).count(function(err, count) {
+        assert.equal(null, err);
+        callback(count); 
+    });
+};
+
+model.count = function(db, collection, search, callback){
+    // Peform a partial account where b=1
+    db.collection(collection).count(search, function(err, count) {
+        assert.equal(null, err);
+        callback(count); 
+    });
+};
 
 // Find datat in database 
 model.find = function (db, collection, callback) {
     var cursor = db.collection(collection).find();
     cursor.each(function (err, doc) {
         assert.equal(err, null);
-        if (doc !== null) {
-            return doc;
-        } else {
-            callback();
-        }
+        callback(doc);
     });
 };
 
-// Find datat in database 
-model.findOne = function (db, collection, data, callback) {
-    db.collection(collection).findOne(data, function (err, doc) {
+// Find document in database 
+model.findOne = function (db, collection, search, callback) {
+    db.collection(collection).findOne(search, function (err, doc) {
         assert.equal(err, null);
         if (doc !== null) {
-            return doc;
+            callback(null,doc);
         } else {
-            callback();
+            callback("File not found",null);
         }
     });
 };
@@ -43,18 +55,16 @@ model.insert = function (db, collection, data, callback) {
         w: 1
     }, function (err, result) {
         assert.equal(err, null);
-        if (result !== null) {
-            return true;
-        } else {
-            callback();
-        }
+        if (result !== null)
+            console.log("Data inserted"); 
+        callback();
     });
 };
 
 // Remove all matched
-model.remove = function(db,collection,field, data, callback) {
+model.remove = function(db,collection, data, callback) {
    db.collection(collection).deleteMany(
-      { field: data},
+      data,
       function(err, results) {
          console.log(results);
          callback();
@@ -63,9 +73,9 @@ model.remove = function(db,collection,field, data, callback) {
 };
 
 // Remove single match
-model.removeOne = function(db,collection,field, data, callback) {
+model.removeOne = function(db,collection, data, callback) {
    db.collection(collection).deleteOne(
-      { field: data},
+      data,
       function(err, results) {
          console.log(results);
          callback();
@@ -73,7 +83,32 @@ model.removeOne = function(db,collection,field, data, callback) {
    );
 };
 
-// Aggregate 
+// Update document in database
+model.update = function(db,collection,search,data, callback) {
+   db.collection(collection).updateOne(
+      search,
+      {
+        $set: data,
+        $currentDate: { "lastModified": true }
+      }, function(err, results) {
+      console.log(results);
+      callback();
+   });
+};
+
+// Insert a document in the capped collection
+model.push = function(db,collection,search,data, callback){
+    db.collection(collection).update(
+        search, {
+        $push: data
+    }, function(err, result) {
+        assert.equal(null, err);
+        console.log("New Post added");
+        callback();
+    });
+};
+
+// Aggregate documents
 model.aggregate = function(db, callback) {
    db.collection(collection).aggregate(
      [
