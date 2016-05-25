@@ -19,10 +19,10 @@ var Db = require('mongodb').Db
 var avaiable = false;
 
 // Index, list out all the courses 
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
-    db.open(function(err, db) {
-        var cursor = db.collection('Courses').find().toArray(function(err, documents) {
+    db.open(function (err, db) {
+        var cursor = db.collection('Courses').find().toArray(function (err, documents) {
             //assert.equal(1, documents.length);
             db.close();
             res.render('courses', {
@@ -34,21 +34,21 @@ router.get('/', function(req, res, next) {
 });
 
 // Load create course page 
-router.get('/CreateCourse', function(req, res, next) {
+router.get('/CreateCourse', function (req, res, next) {
     res.render('createCourse', {
         title: 'Course Creation page'
     });
 });
 
 // Post course to database 
-router.post('/CreateCourseReqest', isAuthenticated, function(req, res) {
+router.post('/CreateCourseReqest', isAuthenticated, function (req, res) {
     var course = req.body;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
-    db.open(function(err, db) {
+    db.open(function (err, db) {
         // Insert a document in the capped collection
         db.collection('Courses').insert(course, {
             w: 1
-        }, function(err, result) {
+        }, function (err, result) {
             assert.equal(null, err);
             console.log("New Course added " + course);
             //res.json("Course Created");
@@ -58,41 +58,41 @@ router.post('/CreateCourseReqest', isAuthenticated, function(req, res) {
 });
 
 // Load create Post page 
-router.get('/:CourseName/CreatePost', isAuthenticated, function(req, res, next) {
+router.get('/:CourseName/CreatePost', isAuthenticated, function (req, res, next) {
     res.render('tester', {
         title: 'Tester Page'
     });
 });
 
 // Post post obejct to database
-router.post('/:CourseName/CreatePostRequest', isAuthenticated, function(req, res, next) {
+router.post('/:CourseName/CreatePostRequest', isAuthenticated, function (req, res, next) {
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
-    db.open(function(err, db) {
+    db.open(function (err, db) {
         // Insert a document in the capped collection
         db.collection('Courses').update({
             "id": 1
         }, {
-            $push: {
-                "Posts": genPost(req.body)
-            }
-        }, function(err, result) {
-            assert.equal(null, err);
-            console.log("New Post added");
-            res.json(true);
-            db.close();
-        });
+                $push: {
+                    "Posts": genPost(req.body)
+                }
+            }, function (err, result) {
+                assert.equal(null, err);
+                console.log("New Post added");
+                res.json(true);
+                db.close();
+            });
     });
 });
 
 // Load Course page, since courses can be free, we wont authenticate users or require login
-router.get('/:CourseName', function(req, res, next) {
+router.get('/:CourseName', function (req, res, next) {
     var CourseName = req.params.CourseName;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
-    db.open(function(err, db) {
+    db.open(function (err, db) {
         // Get Course object, This features will be removed once the sessions feature is added
         db.collection('Courses').findOne({
             path: CourseName
-        }, function(err, doc) {
+        }, function (err, doc) {
             assert.equal(null, err);
             if (doc != null) {
                 avaiable = true;
@@ -139,14 +139,14 @@ router.get('/:CourseName', function(req, res, next) {
 });
 
 // Load post page 
-router.get('/:CourseName/:PostName', isAuthenticated, function(req, res, next) {
+router.get('/:CourseName/:PostName', isAuthenticated, function (req, res, next) {
     var path = req.params.PostName;
     var db = new Db('AlphaLearning', new Server('localhost', 27017));
-    db.open(function(err, db) {
+    db.open(function (err, db) {
         // Pagnate to course
         db.collection('Courses').findOne({
-                name: "AngularJS"
-            }
+            name: "AngularJS"
+        }
             , // Find the matching element post 
             {
                 Posts: {
@@ -156,7 +156,7 @@ router.get('/:CourseName/:PostName', isAuthenticated, function(req, res, next) {
                 }
             }
             , // Render post object to page 
-            function(err, doc) {
+            function (err, doc) {
                 if (doc == null) {
                     res.render('error', {
                         title: "Post not found"
@@ -174,7 +174,7 @@ router.get('/:CourseName/:PostName', isAuthenticated, function(req, res, next) {
 });
 
 // Test out quiz pages
-router.get('/:CourseName/Quiz/:QuizName', function(req, res, next) {
+router.get('/:CourseName/Quiz/:QuizName', function (req, res, next) {
     // Render quiz page 
     res.render('quiz', {
         title: "Quiz "
@@ -183,14 +183,14 @@ router.get('/:CourseName/Quiz/:QuizName', function(req, res, next) {
 });
 
 // Special 404 page for courses
-router.get('/fourOfour', function(req, res, next) {
+router.get('/fourOfour', function (req, res, next) {
     res.render('fourOfour', {
         title: 'style test'
     });
 });
 
 // Default 404 page 
-router.get('/error', function(req, res, next) {
+router.get('/error', function (req, res, next) {
     res.render('error.jade', {
         title: 'Error Page'
     });
