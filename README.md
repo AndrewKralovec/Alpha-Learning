@@ -1,9 +1,9 @@
 # Alpha Learning
 <h2> Alpha Learning </h2> 
 E-learing application for cs435 called 'Alpha-Learning'
-
+<center>
 ![Example](https://github.com/SIU-CS-435/Alpha-Learning/blob/master/public/images/AL_Icon.png)
-
+</center>
 <h3> Team members </h3> 
 Group project for CS435.
 Team Leader name: <b>Andrew kralovec siu850639556</b> id: 850639556, email: akrala@siu.edu 
@@ -18,13 +18,16 @@ Team Leader name: <b>Andrew kralovec siu850639556</b> id: 850639556, email: akra
 <ol>
     <li>AngularJS is for client side MVC processing</li>
     <li>Bcrypt-nodejs gives the ability to hash the password</li>
+    <li>Chia is for unit testing</li>
     <li>Connect-flash is for passing session flashdata messages</li>
     <li>Express is the framework</li>
-    <li>Ejs is a templating engine</li>
+    <li>Express-session is handling sessions </li>
     <li>Jade is a templating engine</li>
+    <li>Mocha is for unit testing</li>
     <li>Mongodb is for our MongoDB database</li>
     <li>Morgan is for formatting options</li> 
     <li>Multer is for file uploading</li> 
+    <li>ng-file-upload is a Lightweight Angular directive to upload files. </li> 
     <li>Passport is to authenticate requests</li>
 </ol>
 
