@@ -23,17 +23,12 @@ router.get('/', function (req, res, next) {
 // Listen for Seach collection request
 router.post('/loginRequest', function (req, res, next) {
     var databaseName = "AlphaLearning", collection = "Accounts";
-    // TIM DONT TOUCH MY WORKING CODE 
     var username = req.body.username, password = req.body.password;
-    console.log("username: " + username + " password: " + password);
     var db = new Db(databaseName, new Server('localhost', 27017));
     db.open(function (err, db) {
-        console.log(databaseName + ": opened");
-        //var cursor = db.collection(collection).find( { "username":username,"password": password } );
-        // cannot apply cursor methods to the result of findOne() because a single document is returned. 
         db.collection(collection).findOne({ "username": username, "password": password }, function (err, doc) {
             assert.equal(null, err);
-            if (doc != null) {
+            if (doc !== null) {
                 console.log("Found");
                 req.session.user = doc ; 
                 req.session.Logged = true ; 
