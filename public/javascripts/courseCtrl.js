@@ -40,7 +40,7 @@ app.controller('courseCtrl', function ($scope, $http, $location) {
             // }else if(type.includes("pdf")){
         }
         else {
-            return false
+            return false;
         }
     };
 });

@@ -1,7 +1,7 @@
 //Created by Andrew Kralovec
 extends layout
 block content
-    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js")
+    script(src="/javascripts/angular-sanitize.js")
     script(src="/javascripts/postCtrl.js")
     // Page Content
     .container(ng-app='postModule', ng-controller='postCtrl',, ng-init="Post= #{JSON.stringify(Post)}")
