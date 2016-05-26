@@ -7,6 +7,10 @@
 var app = require('../app');
 var debug = require('debug')('E-learn:server');
 var http = require('http');
+var https = require('https');
+var fs = require('fs');
+var options = require('.././models/key'); 
+
 
 /**
  * Get port from environment and store in Express.

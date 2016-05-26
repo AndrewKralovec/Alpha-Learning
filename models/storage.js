@@ -17,4 +17,4 @@ module.exports = function (name) {
     } catch (ex) {
         console.log("Error :\n"+ex);
     }
-}
+};
