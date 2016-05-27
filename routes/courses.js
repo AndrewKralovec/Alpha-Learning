@@ -225,7 +225,7 @@ function genPost(data) {
         , "path": data.title + "-address"
         , "description": data.description
         , "content": data.content
-    }
+    };
     return result;
 }
 
