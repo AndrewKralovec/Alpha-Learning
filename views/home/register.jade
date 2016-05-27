@@ -1,8 +1,7 @@
-extends layout
-
+extends ../layout
 block content
     link(href="/stylesheets/register.css", rel="stylesheet")
-    script(src="/javascripts/registerCtrl.js")
+    script(src="/javascripts/controllers/registerCtrl.js")
     .container(ng-app='myApp', ng-controller='registerController')
         .row.centered-form
             .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4

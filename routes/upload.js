@@ -24,7 +24,7 @@ var Db = require('mongodb').Db,
 
 // Will add :username
 router.get('/', function(req, res, next) {
-    res.render('upload', {
+    res.render('shared/upload', {
         title: 'upload Page',
         message: 'Message'
     });

@@ -1,8 +1,8 @@
 // Created by Andrew Kralovec
-extends layout
+extends ../layout
 block content
   link(href='/stylesheets/quiz.css', rel='stylesheet')
-  script(src="/javascripts/quizCtrl.js")
+  script(src="/javascripts/controllers/quizCtrl.js")
   .container-fluid.bg-info(ng-app='quizModule', ng-controller='quizController')
     .modal-dialog(ng-show='inProgress')
       .modal-content(ng-show='!quizOver')

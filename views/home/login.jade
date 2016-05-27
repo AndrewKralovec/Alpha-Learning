@@ -1,9 +1,9 @@
 // Created by Andrew Kralovec
-extends layout
+extends ../layout
 block content
   // Style for login 
   link(href="/stylesheets/login.css", rel="stylesheet")
-  script(src="/javascripts/loginCtrl.js")
+  script(src="/javascripts/controllers/loginCtrl.js")
   // Page Content
   .container(ng-app='myApp', ng-controller='loginController')
     .col-md-6.col-md-offset-3.text-center

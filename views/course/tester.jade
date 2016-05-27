@@ -1,9 +1,9 @@
 // Created by Andrew Kralovec
-extends layout
+extends ../layout
 block content
   script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js")
   script(src="//tinymce.cachefly.net/4.0/tinymce.min.js")
-  script(src="/javascripts/createPostCtrl.js")
+  script(src="/javascripts/controllers/createPostCtrl.js")
   //link(href='/stylesheets/tester.css', rel='stylesheet')
   // Page Content
   .container.ng-scope(ng-app='postModule', ng-controller='postCtrl')

@@ -17,7 +17,7 @@ var Db = require('mongodb').Db,
 
 // GET login page. 
 router.get('/', function (req, res, next) {
-    res.render('login', { title: 'Login page' });
+    res.render('home/login', { title: 'Login page' });
 });
 
 // Listen for Seach collection request

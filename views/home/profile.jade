@@ -1,8 +1,8 @@
 // Created by Andrew Kralovec
-extends layout
+extends ../layout
 block content
   link(href='/stylesheets/user.css', rel='stylesheet')
-  script(src="/javascripts/profileCtrl.js")
+  script(src="/javascripts/controllers/profileCtrl.js")
   .container(ng-app='profileModule', ng-controller='profileCtrl' , ng-init="courses= #{JSON.stringify(courses)}; user=#{JSON.stringify(user)}")
     .row
       // Center Profile 
