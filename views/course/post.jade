@@ -1,8 +1,8 @@
 //Created by Andrew Kralovec
-extends layout
+extends ../layout
 block content
     script(src="/javascripts/angular-sanitize.js")
-    script(src="/javascripts/postCtrl.js")
+    script(src="/javascripts/controllers/postCtrl.js")
     // Page Content
     .container(ng-app='postModule', ng-controller='postCtrl',, ng-init="Post= #{JSON.stringify(Post)}")
       .row

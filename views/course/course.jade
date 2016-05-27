@@ -1,8 +1,8 @@
 // Created by Andrew Kralovec
-extends layout
+extends ../layout
 block content
   // Course Controller file 
-  script(src="/javascripts/courseCtrl.js")
+  script(src="/javascripts/controllers/courseCtrl.js")
   // Page Content
   .container(ng-app='courseModule', ng-controller='courseCtrl' , ng-init="Course= #{JSON.stringify(Course)}")
     .row

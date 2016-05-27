@@ -29,7 +29,7 @@ router.get('/:username/Profile', function(req, res, next) {
                 var user = doc ; 
                 var courses = doc.courses;
                 console.log("Found");
-                res.render('profile', {
+                res.render('home/profile', {
                     title: 'User Profile Page',
                     user: user, 
                     courses: courses

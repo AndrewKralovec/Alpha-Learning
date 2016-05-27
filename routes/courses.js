@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
         var cursor = db.collection('Courses').find().toArray(function (err, documents) {
             //assert.equal(1, documents.length);
             db.close();
-            res.render('courses', {
+            res.render('course/courses', {
                 title: 'Course Page'
                 , Courses: documents
             });
@@ -35,7 +35,7 @@ router.get('/', function (req, res, next) {
 
 // Load create course page 
 router.get('/CreateCourse', function (req, res, next) {
-    res.render('createCourse', {
+    res.render('course/createCourse', {
         title: 'Course Creation page'
     });
 });
@@ -59,7 +59,7 @@ router.post('/CreateCourseReqest', isAuthenticated, function (req, res) {
 
 // Load create Post page 
 router.get('/:CourseName/CreatePost', isAuthenticated, function (req, res, next) {
-    res.render('tester', {
+    res.render('course/tester', {
         title: 'Tester Page'
     });
 });
@@ -107,7 +107,7 @@ router.get('/:CourseName', function (req, res, next) {
                     if (unlock == null || unlock < 0) {
                         db.close();
                         console.log("Not allowed");
-                        res.render('private', {
+                        res.render('course/private', {
                             title: 'Error Page'
                             , message: CourseName
                         });
@@ -117,7 +117,7 @@ router.get('/:CourseName', function (req, res, next) {
                 if (!res.headersSent) {
                     // If in course or the course is open, load page 
                     avaiable = true;
-                    res.render('course', {
+                    res.render('course/course', {
                         title: 'Course Page'
                         , CourseName: CourseName
                         , Course: doc
@@ -165,7 +165,7 @@ router.get('/:CourseName/:PostName', isAuthenticated, function (req, res, next) 
                 if (err)
                     throw err;
                 var result = doc.Posts[0];
-                res.render('post', {
+                res.render('course/post', {
                     title: "Post Page "
                     , Post: result
                 });
@@ -176,7 +176,7 @@ router.get('/:CourseName/:PostName', isAuthenticated, function (req, res, next) 
 // Test out quiz pages
 router.get('/:CourseName/Quiz/:QuizName', function (req, res, next) {
     // Render quiz page 
-    res.render('quiz', {
+    res.render('course/quiz', {
         title: "Quiz "
     });
 

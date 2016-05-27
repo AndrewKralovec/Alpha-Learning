@@ -1,7 +1,7 @@
 // Created by Andrew Kralovec
-extends layout
+extends ../layout
 block content
-  script(src="/javascripts/homeCtrl.js")
+  script(src="/javascripts/controllers/homeCtrl.js")
   // Page Content
   .container(ng-app='docModule', ng-controller='docCtrl' , ng-init="documents= #{JSON.stringify(documents)}")
     .row

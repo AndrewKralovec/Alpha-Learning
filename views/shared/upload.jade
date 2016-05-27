@@ -1,12 +1,12 @@
 // Created by Andrew Kralovec
-extends layout
+extends ../layout
 block content
  // Page Content
  // Only allowing images/pdf until i fix the universal file formats 
  link(href="/stylesheets/upload.css", rel="stylesheet")
  script(src="/javascripts/ng-file-upload.min.js")
  script(src="/javascripts/ng-file-upload.js")
- script(src="/javascripts/uploadCtrl.js")
+ script(src="/javascripts/controllers/uploadCtrl.js")
  .container(ng-app='fileUpload', ng-controller='uploadController', style='padding: 70px; position: relative;')
   .panel.panel-default
     .panel-heading
