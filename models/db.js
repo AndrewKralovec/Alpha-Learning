@@ -10,29 +10,28 @@ var Db = require('mongodb').Db,
     Grid = require('mongodb').Grid,
     Code = require('mongodb').Code,
     assert = require('assert');
-    
-model.sum = function(db, collection, callback){
+
+model.sum = function (db, collection, callback) {
     // Count the number of documents (should not include the duplicates)
-    db.collection(collection).count(function(err, count) {
-        console.log(count); 
-        callback(count); 
+    db.collection(collection).count(function (err, count) {
+        console.log(count);
+        callback(count);
     });
 };
 
-model.count = function(db, collection, search, callback){
+model.count = function (db, collection, search, callback) {
     // Peform a partial account for search data
-    db.collection(collection).count(search, function(err, count) {
+    db.collection(collection).count(search, function (err, count) {
         assert.equal(null, err);
-        callback(count); 
+        callback(count);
     });
 };
 
 // Find data in database 
 model.find = function (db, collection, callback) {
-    var cursor = db.collection(collection).find();
-    cursor.each(function (err, doc) {
+    db.collection(collection).find().toArray(function (err, documents) {
         assert.equal(err, null);
-        callback(doc);
+        callback(documents);
     });
 };
 
@@ -40,9 +39,9 @@ model.find = function (db, collection, callback) {
 model.findOne = function (db, collection, search, callback) {
     db.collection(collection).findOne(search, function (err, doc) {
         if (doc !== null) {
-            callback(null,doc);
+            callback(null, doc);
         } else {
-            callback("File not found",null);
+            callback("File not found", null);
         }
     });
 };
@@ -54,77 +53,90 @@ model.insert = function (db, collection, data, callback) {
         w: 1
     }, function (err, result) {
         if (result !== null)
-            console.log("Data inserted"); 
+            console.log("Data inserted");
         callback(err);
     });
 };
 
 // Remove all matched
-model.remove = function(db,collection, data, callback) {
-   db.collection(collection).deleteMany(
-      data,
-      function(err, results) {
-         callback();
-      }
-   );
+model.remove = function (db, collection, data, callback) {
+    db.collection(collection).deleteMany(
+        data,
+        function (err, results) {
+            callback();
+        }
+    );
 };
 
 // Remove single match
-model.removeOne = function(db,collection, data, callback) {
-   db.collection(collection).deleteOne(
-      data,
-      function(err, results) {
-         callback(err);
-      }
-   );
+model.removeOne = function (db, collection, data, callback) {
+    db.collection(collection).deleteOne(
+        data,
+        function (err, results) {
+            callback(err);
+        }
+    );
 };
 
 // Update document in database
-model.update = function(db,collection,search,data, callback) {
-   db.collection(collection).updateOne(
-      search,
-      {
-        $set: data,
-        $currentDate: { "lastModified": true }
-      }, function(err, results) {
-      console.log("Data updated");
-      callback(err);
-   });
+model.update = function (db, collection, search, data, callback) {
+    db.collection(collection).updateOne(
+        search,
+        {
+            $set: data,
+            $currentDate: { "lastModified": true }
+        }, function (err, results) {
+            console.log("Data updated");
+            callback(err);
+        });
 };
 
 // Insert a document in the capped collection
-model.push = function(db,collection,search,data, callback){
+model.push = function (db, collection, search, data, callback) {
     db.collection(collection).update(
         search, {
-        $push: data
-    }, function(err, result) {
-        console.log("New object pushed");
-        callback(err);
-    });
+            $push: data
+        }, function (err, result) {
+            console.log("New object pushed");
+            callback(err);
+        });
+};
+
+// Insert a doucment into a nested array 
+model.nestedPush = function (db, collection, search, path, data, callback) {
+    db.collection(collection).update(
+        search, {
+            $push: {
+                path: data
+            }
+        }, function (err, result) {
+            console.log("New object pushed");
+            callback(err);
+        });
 };
 
 // Aggregate documents
-model.aggregate = function(db, callback) {
-   db.collection(collection).aggregate(
-     [
-       { $group: { "_id": "$borough", "count": { $sum: 1 } } }
-     ]).toArray(function(err, result) {
-     assert.equal(err, null);
-     console.log("Aggregate");
-     callback(result);
-   });
+model.aggregate = function (db, callback) {
+    db.collection(collection).aggregate(
+        [
+            { $group: { "_id": "$borough", "count": { $sum: 1 } } }
+        ]).toArray(function (err, result) {
+            assert.equal(err, null);
+            console.log("Aggregate");
+            callback(result);
+        });
 };
 
 // Create an ascending index
-model.indexOne = function(db, collection,data, callback) {
-   db.collection(collection).createIndex(
-      data,
-      null,
-      function(err, results) {
-         console.log("Index set");
-         callback();
-      }
-   );
+model.indexOne = function (db, collection, data, callback) {
+    db.collection(collection).createIndex(
+        data,
+        null,
+        function (err, results) {
+            console.log("Index set");
+            callback();
+        }
+    );
 };
 
 module.exports = model; 

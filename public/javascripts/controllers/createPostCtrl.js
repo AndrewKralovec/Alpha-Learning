@@ -10,10 +10,10 @@ angular.module('ui.tinymce', [])
         uiTinymceConfig = uiTinymceConfig || {};
         var generatedIds = 0;
         return {
-            require: 'ngModel'
-            , link: function (scope, elm, attrs, ngModel) {
-                var expression, options, tinyInstance
-                    , updateView = function () {
+            require: 'ngModel', 
+                link: function (scope, elm, attrs, ngModel) {
+                var expression, options, tinyInstance, 
+                    updateView = function () {
                         ngModel.$setViewValue(elm.val());
                         if (!scope.$$phase) {
                             scope.$apply();
@@ -57,9 +57,9 @@ angular.module('ui.tinymce', [])
                             scope.$eval(expression.setup);
                             delete expression.setup;
                         }
-                    }
-                    , mode: 'exact'
-                    , elements: attrs.id
+                    }, 
+                     mode: 'exact', 
+                     elements: attrs.id
                 };
                 // extend options with initial uiTinymceConfig and options from directive attribute value
                 angular.extend(options, uiTinymceConfig, expression);
@@ -78,7 +78,7 @@ angular.module('ui.tinymce', [])
                 };
             }
         };
-}]);
+    }]);
 var app = angular.module('postModule', ['ngSanitize', 'ui.tinymce']);
 app.controller('postCtrl', function ($scope, $sce, $http) {
     // Bypass $sanitize
@@ -88,21 +88,21 @@ app.controller('postCtrl', function ($scope, $sce, $http) {
     // Automatic $sanitize
     $scope.sanitizeSafe = function (value) {
         return value;
-    }
+    };
     $scope.postData = function () {
         var obj = {
-            'name': $scope.postTitle
-            , 'content': $scope.tinymceModel
-            , 'timestamp': Date.now()
-            , 'description': $scope.postDescription
+            'name': $scope.postTitle, 
+            'content': $scope.tinymceModel, 
+            'timestamp': Date.now(), 
+            'description': $scope.postDescription
         };
         $http.post('/Courses/AngularJS-address/CreatePostRequest', obj)
-        .then(function mySucces(response) {
-            console.log(response);
-            alert("New Post Added"); 
-        }, function myError(response) {
-            console.log(response);
-            alert(response); 
-        });
-    }
+            .then(function mySucces(response) {
+                console.log(response);
+                alert('New Post Added');
+            }, function myError(response) {
+                console.log(response);
+                alert(response);
+            });
+    };
 });

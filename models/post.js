@@ -1,3 +1,11 @@
+var MongoClient = require('mongodb').MongoClient;
+var url = 'mongodb://localhost:27017/Courses';
+var db = MongoClient.connect(url); 
+
+// Generate unique address
+function genAddress(address){
+  return (address+'-'+new Date().toISOString()); 
+}
 var model = {
     get id() {
         return this._id ; 
@@ -33,59 +41,49 @@ var model = {
       return this._name ; 
     },
     set name(name){
-      this._name = name || ''; 
+      this._name = name !== undefined ? name : 'Default Title';
     },
     get image(){
       return this._image ; 
     },
     set image(name){
-      this._image = name || '900x300.png'; 
+      this._image = name !== undefined ? name : '900x300.png'; 
     },
     get author(){
       return this._author ; 
     },
     set author(name){
-      this._author = name || ''; 
+      this._author = name !== undefined ? name : 'Anonymouse'; 
     },
     get timestamp(){
       return this._timestamp ; 
     },
-    set timestamp(name){
-      this._timestamp = name || ''; 
+    set timestamp(time){
+      this._timestamp = time !== undefined ? time : Date.now(); 
     },
     get path(){
       return this._path ; 
     },
-    set path(name){
-      this._path = name+"-address" || ''; 
+    set path(path){
+      this._path = path !== undefined ? path+"-address" : genAddress(this._name)+'-address'; 
     },
     get description(){
       return this._description ; 
     },
-    set description(name){
-      this._description = name || ''; 
+    set description(description){
+      this._description = description !== undefined ? description : 'empty description'; 
     },
     get content(){
       return this._content ; 
     },
-    set content(name){
-      this._content = name || ''; 
+    set content(content){
+      this._content = content !== undefined ? content : 'empty content'; 
     }
 };
 
 module.exports = function(parm){
-  model.id = parm.id ; 
-  model.filename = parm.filename ; 
-  model.savename = parm.savename ; 
-  model.filetype = parm.filetype;
-  model.thumbnail = parm.thumbnail;
-  model.name = parm.name;
-  model.image = parm.image;
-  model.author = parm.author; 
-  model.timestamp = parm.timestamp;
-  model.path = parm.path;
-  model.description = parm.description;
-  model.content = parm.content; 
-  console.log(model.id);
+  // Define model properties
+  for(var prop in model)
+    model[prop] = parm[prop] ; 
   return model ; 
 }; 

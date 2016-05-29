@@ -1,2 +1,161 @@
-{"_id":{"$oid":"570149ae11fc92f42ec52d90"},"id":0.0,"name":"CS 435","path":"Cs-435-address","author":"Andrew Kralovec","Private":true,"Associated Term":"","Registration Dates":"","Levels":"","Location":"","Credits":"","Textbook":"","RecentPost":{"TimeStamp":"","Title":"","Thumbnail":"","path":"","description":""},"keys":[69.0,72.0],"Posts":[{"id":0.0,"filename":"Test.png","Path":"uploads/file-1453095651163","savename":"file-1453095651163","filetype":"image/png","Thumbnail":"","name":"First Assignment","image":"prefix-3.png","author":"Andrew Kralovec","timestamp":"Feb 28, 2016 at 10:00 PM","path":"First-assignment-address","description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"},{"id":1.0,"filename":"Next.png","Path":"uploads/file-1453095651163","savename":"file-1453095651163","filetype":"image/png","Thumbnail":"","name":"Second Homework","image":"prefix-2.png","author":"Andrew Kralovec","timestamp":"March 28, 2016 at 11:00 PM","path":"Second-Homework","description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"},{"id":2.0,"filename":"Third.png","Path":"uploads/file-1453095651163","savename":"file-1453095651163","filetype":"image/png","Thumbnail":"","name":"Third Homework","image":"prefix-1.png","author":"Andrew Kralovec","timestamp":"March 31, 2016 at 11:00 PM","path":"Third-Homework","description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"}],"Quzies":[{"id":0.0,"name":"First quiz","path":"quiz-path"}]}
-{"_id":{"$oid":"5711cea2d8fecaff3edc87fc"},"id":1.0,"name":"AngularJS","path":"AngularJS-address","Associated Term":"","Registration Dates":"","Levels":"","Location":"","Credits":"","Textbook":"","RecentPost":{"TimeStamp":"","Title":"","Thumbnail":"","path":"","description":""},"Posts":[{"id":0.0,"filename":"Test.png","Path":"uploads/file-1453095651163","savename":"file-1453095651163","filetype":"image/png","Thumbnail":"","name":"First Assignment","image":"prefix-3.png","author":"Andrew Kralovec","timestamp":"Feb 28, 2016 at 10:00 PM","path":"First-assignment-address","description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"},{"id":1.0,"filename":"Next.png","Path":"uploads/file-1453095651163","savename":"file-1453095651163","filetype":"image/png","Thumbnail":"","name":"Second Homework","image":"prefix-2.png","author":"Andrew Kralovec","timestamp":"March 28, 2016 at 11:00 PM","path":"Second-Homework","description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"},{"id":2.0,"filename":"Third.png","Path":"uploads/file-1453095651163","savename":"file-1453095651163","filetype":"image/png","Thumbnail":"","name":"Third Homework","image":"prefix-1.png","author":"Andrew Kralovec","timestamp":"March 31, 2016 at 11:00 PM","path":"Third-Homework","description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"}]}
+{
+	"id" : 0,
+  "name":"CS 435",
+  "path":"Cs-435-address",
+  "author":"Andrew Kralovec",
+  "Private":true,
+  "Associated Term": "",
+  "Registration Dates": "",
+  "Levels": "",
+  "Location":"",
+  "Credits":"",
+  "Textbook":"",
+  "description" : "This course studies the principles of modern software design and development. Processes, notations, tools and products will be discussed. Fundamental concepts of Object-Oriented design and development will be examined. ", 
+  "RecentPost":{
+    "TimeStamp":"",
+    "Title":"",
+    "thumbnail":"",
+    "path":"",
+    "description":""
+  },
+  "keys":[
+    69,72
+  ],
+  "Posts":[
+    {
+			"id" : 0,
+			"filename" : "Test.png",
+			"Path" : "uploads/file-1453095651163",
+			"savename" : "file-1453095651163",
+			"filetype" : "image/png",
+      "thumbnail":"",
+			"name" : "First Assignment",
+      "image" : "prefix-3.png",
+      "author":"Andrew Kralovec",
+      "timestamp":"Feb 28, 2016 at 10:00 PM",
+      "path":"First-assignment-address",
+      "description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"
+		},
+    {
+			"id" : 1,
+			"filename" : "Next.png",
+			"Path" : "uploads/file-1453095651163",
+			"savename" : "file-1453095651163",
+			"filetype" : "image/png",
+      "thumbnail":"",
+			"name" : "Second Homework",
+      "image" : "prefix-2.png",
+      "author":"Andrew Kralovec",
+      "timestamp":"March 28, 2016 at 11:00 PM",
+      "path":"Second-Homework", 
+      "description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"
+		},
+    {
+			"id" : 2,
+			"filename" : "Third.png",
+			"Path" : "uploads/file-1453095651163",
+			"savename" : "file-1453095651163",
+			"filetype" : "image/png",
+      "thumbnail":"",
+			"name" : "Third Homework",
+      "image" : "prefix-1.png",
+      "author":"Andrew Kralovec",
+      "timestamp":"March 31, 2016 at 11:00 PM",
+      "path":"Third-Homework", 
+      "description":"This will be our very first post. Its assignment one and this is the description. If you click the link it will bring you to the post page"
+		}
+  ],
+    "Quzies":[
+    {
+			"id" : 0,
+      "name":"First quiz",
+      "path":"quiz-path"
+		}
+  ]
+}
+{
+	"id" : 1,
+	"name" : "AngularJS",
+	"path" : "AngularJS-address",
+	"author" : "Andrew Kralovec",
+	"Private" : false,
+	"Associated Term" : "",
+	"Registration Dates" : "",
+	"Levels" : "",
+	"Location" : "",
+	"Credits" : "",
+	"Textbook" : "Pro AngularJS by A. Freeman",
+	"thumbnail" : "AngularJS.png",
+	"description" : "Learn to build web apps using AngularJS. By the end of the course, you'll be able to use AngularJS to create your own apps.", 
+	"RecentPost" : {
+		"TimeStamp" : "",
+		"Title" : "",
+		"thumbnail" : "",
+		"path" : "",
+		"description" : ""
+	},
+	"keys" : [ ],
+	"Posts" : [
+		{
+			"id" : 0,
+			"filename" : "FileName.png",
+			"savename" : "file-1453095651163",
+			"filetype" : "image/png",
+			"thumbnail" : "",
+			"name" : "First Assignment",
+			"image" : "GettingReady.png",
+			"author" : "Andrew Kralovec",
+			"timestamp" : "Feb 28, 2016 at 10:00 PM",
+			"path" : "First-assignment-address",
+			"description" : "This is our first Assignment. The best way to get started with AngularJS is to dive in and create a web application. In this Assignment you will be require to set up your environment for AngularJS",
+			"content":"<h1 style='text-align: center;'>Including angular scripts from</h1>The quickest way to get started is to point your html <code><span class='tag'>&lt;script&gt;</span></code> tag to a Google CDN URL. This way, you don't have to download anything or maintain a local copy.There are two types of angular script URLs you can point to, one for development and one for production:<ul><li><strong>angular.js</strong> — This is the human-readable, non-minified version, suitable for web development.</li><li><strong>angular.min.js</strong> — This is the minified version, which we strongly suggest you use in production.</li></ul><h1 style='text-align: center;'>Downloading and hosting angular files locally</h1>This option is for those who want to work with angular offline, or those who want to host the angular files on their own servers.If you navigate to <a href='http://code.angularjs.org/'>http://code.angularjs.org/</a>, you'll see a directory listing with all of the angular versions since we started releasing versioned build artifacts (quite late in the project lifetime). Each directory contains all artifacts that we released for a particular version. Download the version you want and have fun.Each directory under <a href='http://code.angularjs.org/'>http://code.angularjs.org/</a> includes the following set of files:<ul><li><strong><code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — This file is non-obfuscated, non-minified, and human-readable by opening it in any editor or browser. In order to get better error messages during development, you should always use this non-minified angular script.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>min</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — This is a minified and obfuscated version of <code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>js</span></code> created with the Closure compiler. Use this version for production in order to minimize the size of the application that is downloaded by your user's browser.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>zip</span></code></strong> — This is a zip archive that contains all of the files released for this angular version. Use this file to get everything in a single download.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>-</span><span class='pln'>mocks</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — This file contains an implementation of mocks that makes testing angular apps even easier. Your unit/integration test harness should load this file after <code><span class='pln'>angular</span><span class='pun'>.</span><span class='pln'>js</span></code> is loaded.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>-</span><span class='pln'>scenario</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — This file is a very nifty JavaScript file that allows you to write and execute end-to-end tests for angular applications.</li><li><strong><code><span class='pln'>angular</span><span class='pun'>-</span><span class='pln'>loader</span><span class='pun'>.</span><span class='pln'>min</span><span class='pun'>.</span><span class='pln'>js</span></code></strong> — Module loader for Angular modules. If you are loading multiple script files containing Angular modules, you can load them asynchronously and in any order as long as you load this file first. Often the contents of this file are copy&amp;pasted into the <code><span class='pln'>index</span><span class='pun'>.</span><span class='pln'>html</span></code> to avoid even the initial request to <code><span class='pln'>angular</span><span class='pun'>-</span><span class='pln'>loader</span><span class='pun'>.</span><span class='pln'>min</span><span class='pun'>.</span><span class='pln'>js</span></code>. See <a href='https://github.com/angular/angular-seed/blob/master/app/index-async.html'>angular-seed</a> for an example of usage.</li></ul>",
+			"comments":[
+				{
+					"username":"akrala",
+					"content":"Wow greate Job Andrew",
+					"avatar" : "ProfilPic.png",
+					"timestamp" : "Feb 28, 2016 at 11:00 PM"
+				},
+				{
+					"username":"akrala",
+					"content":"Thanks Andrew, you're looking sexy in that profile pic",
+					"avatar" : "ProfilPic.png",
+					"timestamp" : "Feb 30, 2016 at 11:00 PM"
+				}
+			]
+		},
+		{
+			"id" : 1,
+			"filename" : "Next.png",
+			"savename" : "file-1453095651163",
+			"filetype" : "image/png",
+			"thumbnail" : "",
+			"name" : "Second Assignment",
+			"image" : "PuttingIntoContext.png",
+			"author" : "Andrew Kralovec",
+			"timestamp" : "March 28, 2016 at 11:00 PM",
+			"path" : "Second-assignment-address",
+			"description" : "This is our second Assignment. I put AngularJS in context within the world of web app development during our last lession. In this Assignment you have to exaplin how AngularJS brings tools and capabilities that have been available only for server-side development to the web client and, in doing so, make it easier to develop, test, and maintain rich and complex web applications."
+		},
+		{
+			"id" : 2,
+			"filename" : "Third.png",
+			"savename" : "file-1453095651163",
+			"filetype" : "image/png",
+			"thumbnail" : "",
+			"name" : "AngularJS Features",
+			"image" : "JavaScriptPrimer.png",
+			"author" : "Andrew Kralovec",
+			"timestamp" : "March 31, 2016 at 11:00 PM",
+			"path" : "Thrid-Post-address",
+			"description" : "In this less i will provide a quick tour of the most important features of the JavaScript language, as they apply to thisbook. I don’t have the space to describe JavaScript completely, but I have focused on the essentials that you’ll needto get up to speed and follow the examples in this book. In addition to the most important core JavaScript languagefeatures, I describe the set of utility methods that AngularJS provides."
+		}
+	],
+	"Quizzes" : [
+		{
+			"id" : 0,
+			"name" : "Intro quiz",
+			"path" : "Intro-Quiz-address"
+		}
+	]
+}

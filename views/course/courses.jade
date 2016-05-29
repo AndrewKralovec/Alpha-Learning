@@ -45,7 +45,7 @@ block content
       // Course portfolio 
       .col-md-6.portfolio-item(ng-repeat='portfolio in Courses')
         a(href='#')
-          img.img-responsive(ng-src='/images/{{portfolio.Thumbnail}}', style='width:700px; height:300px;', alt='')
+          img.img-responsive(ng-src='/images/{{portfolio.thumbnail}}', style='width:700px; height:300px;', alt='')
         h3
           a(href='/Courses/{{portfolio.path}}') {{portfolio.name}}
         p
