@@ -1,6 +1,6 @@
 // Reduce hidden class creation in V8 for code optimization
 var model = {
-    sum : function (db, collection, callback) {
+    sum: function (db, collection, callback) {
         // Count the number of documents (should not include the duplicates)
         db.collection(collection).count(function (err, count) {
             console.log(count);
@@ -8,16 +8,16 @@ var model = {
         });
     },
 
-    count : function (db, collection, search, callback) {
+    count: function (db, collection, search, callback) {
         // Peform a partial account for search data
         db.collection(collection).count(search, function (err, count) {
             assert.equal(null, err);
             callback(count);
         });
     },
-    
+
     // Find data in database 
-    find : function (db, collection, callback) {
+    find: function (db, collection, callback) {
         db.collection(collection).find().toArray(function (err, documents) {
             assert.equal(err, null);
             callback(documents);
@@ -25,7 +25,7 @@ var model = {
     },
 
     // Search database for matched document
-    findOne : function (db, collection, search, callback) {
+    findOne: function (db, collection, search, callback) {
         db.collection(collection).findOne(search, function (err, doc) {
             if (doc !== null) {
                 callback(null, doc);
@@ -36,7 +36,7 @@ var model = {
     },
 
     // Insert data into database
-    insert : function (db, collection, data, callback) {
+    insert: function (db, collection, data, callback) {
         // Insert a document in the capped collection
         db.collection(collection).insert(data, {
             w: 1
@@ -48,7 +48,7 @@ var model = {
     },
 
     // Remove all matched
-    remove : function (db, collection, data, callback) {
+    remove: function (db, collection, data, callback) {
         db.collection(collection).deleteMany(
             data,
             function (err, results) {
@@ -58,7 +58,7 @@ var model = {
     },
 
     // Remove single match
-    removeOne : function (db, collection, data, callback) {
+    removeOne: function (db, collection, data, callback) {
         db.collection(collection).deleteOne(
             data,
             function (err, results) {
@@ -68,7 +68,7 @@ var model = {
     },
 
     // Update document in database
-    update : function (db, collection, search, data, callback) {
+    update: function (db, collection, search, data, callback) {
         db.collection(collection).updateOne(
             search,
             {
@@ -81,7 +81,7 @@ var model = {
     },
 
     // Insert a document in the capped collection
-    push : function (db, collection, search, data, callback) {
+    push: function (db, collection, search, data, callback) {
         db.collection(collection).update(
             search, {
                 $push: data
@@ -92,7 +92,7 @@ var model = {
     },
 
     // Insert a doucment into a nested array 
-    nestedPush : function (db, collection, search, path, data, callback) {
+    nestedPush: function (db, collection, search, path, data, callback) {
         db.collection(collection).update(
             search, {
                 $push: {
@@ -105,7 +105,7 @@ var model = {
     },
 
     // Aggregate documents
-    aggregate : function (db, callback) {
+    aggregate: function (db, callback) {
         db.collection(collection).aggregate(
             [
                 { $group: { "_id": "$borough", "count": { $sum: 1 } } }
@@ -117,7 +117,7 @@ var model = {
     },
 
     // Create an ascending index
-    indexOne : function (db, collection, data, callback) {
+    indexOne: function (db, collection, data, callback) {
         db.collection(collection).createIndex(
             data,
             null,
@@ -127,5 +127,5 @@ var model = {
             }
         );
     }
-}; 
+};
 module.exports = model; 
