@@ -84,6 +84,26 @@ router.post('/:CourseName/CreatePostRequest', isAuthenticated, function (req, re
     });
 });
 
+// Post post obejct to database
+router.post('/:CourseName/CreateComment', isAuthenticated, function (req, res, next) {
+    var db = new Db('AlphaLearning', new Server('localhost', 27017));
+    db.open(function (err, db) {
+        // Insert a document in the capped collection
+        db.collection('Courses').update({
+            "id":1,"Posts.id":0
+        }, {
+                $push: {
+                    "Posts.$.comments": req.body
+                }
+            }, function (err, result) {
+                assert.equal(null, err);
+                console.log("New Comment added");
+                res.json(true);
+                db.close();
+            });
+    });
+});
+
 // Load Course page, since courses can be free, we wont authenticate users or require login
 router.get('/:CourseName', function (req, res, next) {
     var CourseName = req.params.CourseName;
