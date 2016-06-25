@@ -9,7 +9,7 @@ This application is in its infant stage of development.
 
 #  Team members  
 Group project for CS435.
-Team Leader name: **Andrew kralovec siu850639556** id: 850639556, email: [akrala@yahoo.com](mailto:akrala@yahoo.com)
+Team Leader name: **Andrew kralovec**, email: [akrala@yahoo.com](mailto:akrala@yahoo.com)
  * Andrew Kralovec 
  * Tyler Nethery 
  * Douglas Bukauskas 
