@@ -10,25 +10,25 @@ This application is in its infant stage of development.
 #  Team members  
 Group project for CS435.
 Team Leader name: **Andrew kralovec siu850639556** id: 850639556, email: [akrala](mailto:akrala@siu.edu)
-    * Andrew Kralovec 
-    * Tyler Nethery 
-    * Douglas Bukauskas 
-    * Timothy Lunik 
+ * Andrew Kralovec 
+ * Tyler Nethery 
+ * Douglas Bukauskas 
+ * Timothy Lunik 
 
 # Packages  
-    * AngularJS is for client side MVC processing 
-    * Bcrypt-nodejs gives the ability to hash the password 
-    * Chia is for unit testing 
-    * Connect-flash is for passing session flashdata messages 
-    * Express is the framework 
-    * Express-session is handling sessions  
-    * Jade is a templating engine 
-    * Mocha is for unit testing 
-    * Mongodb is for our MongoDB database 
-    * Morgan is for formatting options  
-    * Multer is for file uploading  
-    * ng-file-upload is a Lightweight Angular directive to upload files.   
-    * Passport is to authenticate requests 
+ * AngularJS is for client side MVC processing 
+ * Bcrypt-nodejs gives the ability to hash the password 
+ * Chia is for unit testing 
+ * Connect-flash is for passing session flashdata messages 
+ * Express is the framework 
+ * Express-session is handling sessions  
+ * Jade is a templating engine 
+ * Mocha is for unit testing 
+ * Mongodb is for our MongoDB database 
+ * Morgan is for formatting options  
+ * Multer is for file uploading  
+ * ng-file-upload is a Lightweight Angular directive to upload files.   
+ * Passport is to authenticate requests 
 
 # Start Alpha-Learning 
 Clone the project from github to your desired folder location. 
