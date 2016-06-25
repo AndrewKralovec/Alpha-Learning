@@ -1,44 +1,41 @@
 # Alpha Learning
-<h2> Alpha Learning </h2> 
-E-learing application for cs435 called 'Alpha-Learning'
-<center>
-![Example](https://github.com/SIU-CS-435/Alpha-Learning/blob/master/public/images/AL_Icon.png)
-</center>
-<h3> Team members </h3> 
+E-learing application called 'Alpha-Learning'
+![Alpha Learning Icon](https://github.com/SIU-CS-435/Alpha-Learning/blob/master/public/images/AL_Icon.png "Alpha Learning")
+
+# About
+Alpha Learning is a E-learning MEAN Stack web application being built on top of the Node.js environment.
+Alpha Learning offers customized content, and personalized learning environment that allows learners to study material in and outside the classroom.
+This application is in its infant stage of development.
+
+#  Team members  
 Group project for CS435.
-Team Leader name: <b>Andrew kralovec siu850639556</b> id: 850639556, email: akrala@siu.edu 
-<ol>
-    <li>Andrew Kralovec</li>
-    <li>Tyler Nethery</li>
-    <li>Douglas Bukauskas</li>
-    <li>Timothy Lunik</li>
-</ol>
+Team Leader name: **Andrew kralovec siu850639556** id: 850639556, email: [akrala](mailto:akrala@siu.edu)
+    * Andrew Kralovec 
+    * Tyler Nethery 
+    * Douglas Bukauskas 
+    * Timothy Lunik 
 
-<h4>Packages </h4>
-<ol>
-    <li>AngularJS is for client side MVC processing</li>
-    <li>Bcrypt-nodejs gives the ability to hash the password</li>
-    <li>Chia is for unit testing</li>
-    <li>Connect-flash is for passing session flashdata messages</li>
-    <li>Express is the framework</li>
-    <li>Express-session is handling sessions </li>
-    <li>Jade is a templating engine</li>
-    <li>Mocha is for unit testing</li>
-    <li>Mongodb is for our MongoDB database</li>
-    <li>Morgan is for formatting options</li> 
-    <li>Multer is for file uploading</li> 
-    <li>ng-file-upload is a Lightweight Angular directive to upload files. </li> 
-    <li>Passport is to authenticate requests</li>
-</ol>
+# Packages  
+    * AngularJS is for client side MVC processing 
+    * Bcrypt-nodejs gives the ability to hash the password 
+    * Chia is for unit testing 
+    * Connect-flash is for passing session flashdata messages 
+    * Express is the framework 
+    * Express-session is handling sessions  
+    * Jade is a templating engine 
+    * Mocha is for unit testing 
+    * Mongodb is for our MongoDB database 
+    * Morgan is for formatting options  
+    * Multer is for file uploading  
+    * ng-file-upload is a Lightweight Angular directive to upload files.   
+    * Passport is to authenticate requests 
 
-<h3> Start Mongo My Admin </h3> 
+# Start Alpha-Learning 
 Clone the project from github to your desired folder location. 
-<code>git clone  "https://github.com/SIU-CS-435/Alpha-Learning"</code>. 
+`code(https://github.com/AndrewKralovec/Alpha-Learning)`
 Open your terminal in the current folder destination and run the script app.js . "node app.js". The server will run on the default port '3000' feel free to change it to any port you wish. 
 
-<h3> Debug Alpha-Learning </h3> 
+# Debug Alpha-Learning 
 Debugger json has been set up in .vscode file. run the debugger with 
-<code>node --debug-brk=3550 --nolazy bin/www </code> or <code>npm start</code>  . 
+`code(npm start)`
 Very handy for catching route issues. 
-
-<h3>Directory structure</h3>

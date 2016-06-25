@@ -16,7 +16,6 @@ var login = require('./routes/login');
 var courses = require('./routes/courses');
 var upload = require('./routes/upload');
 var app = express();
-var play = require('./play');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
