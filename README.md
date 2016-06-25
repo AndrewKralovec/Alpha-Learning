@@ -32,10 +32,10 @@ Team Leader name: **Andrew kralovec**, email: [akrala@yahoo.com](mailto:akrala@y
 
 # Start Alpha-Learning 
 Clone the project from github to your desired folder location. 
-`code(https://github.com/AndrewKralovec/Alpha-Learning)`
+`git clone https://github.com/AndrewKralovec/Alpha-Learning`
 Open your terminal in the current folder destination and run the script app.js . "node app.js". The server will run on the default port '3000' feel free to change it to any port you wish. 
 
 # Debug Alpha-Learning 
 Debugger json has been set up in .vscode file. run the debugger with 
-`code(npm start)`
+`npm start`
 Very handy for catching route issues. 
