@@ -1,5 +1,5 @@
 # Alpha Learning
-E-learing application called 'Alpha-Learning'
+E-learing application called 'Alpha-Learning'  
 ![Alpha Learning Icon](https://github.com/SIU-CS-435/Alpha-Learning/blob/master/public/images/AL_Icon.png "Alpha Learning")
 
 # About
