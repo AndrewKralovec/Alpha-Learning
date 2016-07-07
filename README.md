@@ -8,7 +8,6 @@ Alpha Learning offers customized content, and personalized learning environment 
 This application is in its infant stage of development.
 
 #  Team members  
-Group project for CS435.
 Team Leader name: **Andrew kralovec**, email: [akrala@yahoo.com](mailto:akrala@yahoo.com)
  * Andrew Kralovec 
  * Tyler Nethery 
