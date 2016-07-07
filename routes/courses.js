@@ -64,6 +64,15 @@ router.get('/:CourseName/CreatePost', isAuthenticated, function (req, res, next)
     });
 });
 
+// Create quiz
+router.get('/:CourseName/CreateQuiz', function (req, res, next) {
+    // Render quiz creater page 
+    res.render('course/createQuiz', {
+        title: "Create Quiz "
+    });
+
+});
+
 // Post post obejct to database
 router.post('/:CourseName/CreatePostRequest', isAuthenticated, function (req, res, next) {
     var db = new Db('AlphaLearning', new Server('localhost', 27017));

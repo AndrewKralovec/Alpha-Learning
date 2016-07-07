@@ -25,7 +25,7 @@ router.get('/:username/Profile', function(req, res, next) {
             username: username
         }, function(err, doc) {
             assert.equal(null, err);
-            if (doc != null) {
+            if (doc !== null) {
                 var user = doc ; 
                 var courses = doc.courses;
                 console.log("Found");

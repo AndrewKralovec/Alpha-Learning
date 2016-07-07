@@ -1,0 +1,46 @@
+// Created by Andrew Kralovec
+extends ../layout
+block content
+  // Content of pages loaded
+  // Quiz Creater Controller file
+  script(src='/javascripts/controllers/quizCreater.js')
+  .container.ng-scope(ng-app='quizCreaterModule', ng-controller='quizCreaterCtrl')
+    form.well
+      .row
+        .col-lg-12
+          .col-lg-12
+              h2 Create Quiz
+          hr
+          .col-lg-6
+              label Option 1
+              input(placeholder='America', ng-model='question.A', type='text')
+              label Option 2
+              input(placeholder='Mexico', ng-model='question.B', type='text')
+              label Option 3
+              input(placeholder='England', ng-model='question.C', type='text')
+              label Option 4
+              input(placeholder='Your moms closet', ng-model='question.D', type='text')
+              hr
+              label Question 
+              input(placeholder='Where is waldo?', ng-model='question.content', type='text')
+              button.btn.btn-primary.pull-right(ng-click='push(question)') Push
+          .col-lg-6
+            .panel.panel-primary
+              .panel-heading
+                label Quiz
+              .panel-body
+                ul.list-group
+                  li.list-group-item(ng-repeat='q in questions', data-toggle="collapse" data-target="#{{q.id}}") {{q.content}}
+                    label(id='{{q.id}}', class="collapse")
+                      | {{q.A}}
+                      br
+                      | {{q.B}}
+                      br
+                      | {{q.C}}
+                      br
+                      | {{q.D}}
+                button.btn(ng-click='remove()')
+                  i.fa.fa-trash.fa-2x
+          .col-lg-12
+              button.btn.btn-primary.pull-right(type='submit') Upload
+
