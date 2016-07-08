@@ -81,20 +81,6 @@ block content
               strong Create 
               | a new Quiz 
               a.fa.fa-external-link-square.icon-rounded.fa-2x(target="_self", href='{{currentUrl}}/CreateQuiz', role='button', style="float:right")    
-            // Category 2
-        .well
-          h4 User Posts
-          .row
-            // Category 1
-            .col-lg-6
-              ul.list-unstyled
-                li(ng-repeat='post in Course.Posts')
-                  a(href='#') {{post.name}}
-            // Category 2
-            .col-lg-6
-              ul.list-unstyled
-                li(ng-repeat='post in Posts')
-                  a(href='#') {{post.name}}
         .well
           .row
             h4 Reputation (200)

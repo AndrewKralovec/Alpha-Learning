@@ -1,0 +1,46 @@
+extends ../layout
+// Gross this looks like python
+block content
+ link(href="/stylesheets/dashboard.css", rel="stylesheet")
+ #wrapper
+  // Sidebar
+  #sidebar-wrapper
+    ul.sidebar-nav
+      li.sidebar-brand
+        a(href='#')
+      li
+        a(href='/')
+          span.menu-title Dashboard
+          i.fa.fa-dashboard.fa-fw
+      li.collapsed(data-toggle='collapse', data-target='#mail')
+        a(href='#')
+          | Mail 
+          i.fa.fa-envelope.fa-fw
+          span.arrow
+      ul#mail.sub-menu.collapse
+        li Inbox
+        li Compose Email
+      li
+        a(href='#')
+          | Courses
+          i.fa.fa-graduation-cap.fa-fw
+      li
+        a(href='#')
+          | Events
+          i.fa.fa-calendar.fa-fw
+      li
+        a(href='#')
+          | Books
+          i.fa.fa-book.fa-fw
+      li
+        a(href='/Documents')
+          | Documents
+          i.fa.fa-archive.fa-fw
+      li
+        a(href='#')
+          | Options
+          i.fa.fa-gears.fa-fw
+  block page 
+    // Angular Template, this is where content will be injected
+    div(ng-include='pages')
+    div(ui-view='')

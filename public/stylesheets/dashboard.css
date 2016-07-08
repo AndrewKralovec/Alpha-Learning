@@ -1,0 +1,28 @@
+.icon-rounded {
+    background-color: #286090; /*Need a site theme color*/
+    color: #FFF;
+    border-radius: 50px;
+    font-size: 25px;
+}
+.col-md-3.dashboard_widget{
+    width: 23.5%; /* Will change on dashboard widgets*/
+}
+
+.dashboard_icon_box {
+    min-height: 100px;
+    background: #FFF none repeat scroll 0% 0%;
+    padding: 15px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard_icon_box .fa {
+    margin-right: 0px;
+    width: 66px;
+    height: 66px;
+    text-align: center;
+    line-height: 65px;
+}
+/* add some space */
+.fa.pull-left {
+    margin-right: 10% !important;
+}
