@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // Configuring sessions
 var session = require('express-session');
-var MongoStore = require('connect-mongo')(session); // TWO GOD DAMN HOURS FOR THIS FUCKING OBJECT. GOD DAMN
+var MongoStore = require('connect-mongo')(session); 
 
 var routes = require('./routes/index');
 var login = require('./routes/login');
